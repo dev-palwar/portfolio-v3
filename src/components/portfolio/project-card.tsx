@@ -18,7 +18,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <article className="group h-full flex flex-col rounded-md border border-border bg-card overflow-hidden card-shadow">
+    <article className="h-full flex flex-col rounded-md border border-border bg-card overflow-hidden card-shadow">
       {/* Image or placeholder */}
       <div className="relative aspect-4/2 overflow-hidden">
         {imageUrl ? (
@@ -46,7 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                         key={link.label}
                         name={link.label}
                         url={link.url}
-                        className="cursor-pointer text-4xl"
+                        className="cursor-pointer text-4xl text-white"
                       />
                     ))}
                   </div>
@@ -75,27 +75,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* techStack */}
         <div className="flex flex-wrap gap-3">
           {techStack.map((tag) => (
-            <RenderIcon key={tag} name={tag} className="text-xl" />
+            <RenderIcon
+              key={tag}
+              name={tag}
+              className="text-xl"
+              withColor={true}
+            />
           ))}
         </div>
-
-        {/* Links */}
-        {/* {links && links.length > 0 && (
-          <div className="flex flex-wrap gap-3 pt-2 border-t border-border mt-auto">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            ))}
-          </div>
-        )} */}
       </div>
     </article>
   );

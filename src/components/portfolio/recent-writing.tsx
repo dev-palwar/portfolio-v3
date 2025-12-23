@@ -1,5 +1,6 @@
 import type { Writing } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
+import Link from "next/link";
 
 interface RecentWritingProps {
   writings: Writing[];
@@ -24,7 +25,9 @@ export function RecentWriting({
               className="flex items-baseline justify-between gap-4 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.06}s` }}
             >
-              <Typography variant="heading2">{writing.title}</Typography>
+              <Link href={`/writings/${writing.id}`} key={writing.id}>
+                <Typography variant="heading2">{writing.title}</Typography>
+              </Link>
               <Typography
                 variant="helpText"
                 className="text-right uppercase tracking-[0.16em]"

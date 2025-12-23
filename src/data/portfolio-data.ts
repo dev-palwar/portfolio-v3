@@ -396,30 +396,23 @@ export const portfolioData: PortfolioData = {
 
   writings: [
     {
-      id: "w-1",
-      title: "The hike that broke me a little and fixed me a little",
-      date: "Dec 14, 2025",
-      coverImageUrl:
-        "https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      contentPath: "src/content/writings/w-1.md",
+      id: "windows-terminal",
+      title: ">_ my windows terminal",
+      date: "13 Jan, 2024",
+      coverImageUrl: "windows-terminal.jpg",
+      contentPath: "src/content/writings/windows-terminal.md",
     },
     {
-      id: "w-2",
-      title: "Chase your curiosity, find your niche",
+      id: "firefox-custom-css",
+      title: "Firefox custom CSS",
       date: "Dec 7, 2025",
-      contentPath: "src/content/writings/w-2.md",
+      contentPath: "src/content/writings/firefox-custom-css.md",
     },
     {
-      id: "w-3",
-      title: "Signing off from Groww",
+      id: "kitty-zsh-guide",
+      title: "Kitty + Zsh guide",
       date: "Aug 29, 2025",
-      contentPath: "src/content/writings/w-3.md",
-    },
-    {
-      id: "w-4",
-      title: "Solo builder notes #4",
-      date: "Jun 18, 2025",
-      contentPath: "src/content/writings/w-4.md",
+      contentPath: "src/content/writings/kitty-zsh-guide.md",
     },
   ],
 };

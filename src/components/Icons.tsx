@@ -1,3 +1,4 @@
+import React from "react";
 import { FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { TbBrandTailwind } from "react-icons/tb";
@@ -12,146 +13,138 @@ import {
   SiTypescript,
   SiVite,
   SiWebpack,
+  SiMongodb,
+  SiFramer,
 } from "react-icons/si";
-import { SiMongodb, SiFramer } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GoProjectSymlink } from "react-icons/go";
-import { cn } from "@/lib/utils";
 import { LiaLinkedinIn } from "react-icons/lia";
 import { BsTwitter } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
+import { cn } from "@/lib/utils";
 
-interface Props {
+// Maps icon names to color classes for colored display
+const iconColorMap: Record<string, string> = {
+  github: "text-[#181717] dark:text-[#f5f5f5]",
+  linkedin: "text-[#0A66C2]",
+  twitter: "text-[#1DA1F2]",
+  email: "text-gray-400",
+  website: "text-blue-500",
+  react: "text-[#61DAFB]",
+  nextjs: "text-[#000] dark:text-white",
+  tailwindcss: "text-[#38BDF8]",
+  typescript: "text-[#3178C6]",
+  javascript: "text-[#F7DF1E]",
+  nodejs: "text-[#339933]",
+  mongodb: "text-[#47A248]",
+  expressjs: "text-gray-400",
+  graphql: "text-[#E10098]",
+  chakraui: "text-[#319795]",
+  sass: "text-[#CC6699]",
+  "framer-motion": "text-[#0055FF] dark:text-white",
+  redux: "text-[#764ABC]",
+  webpack: "text-[#8DD6F9]",
+  npm: "text-[#CB3837]",
+  firebase: "text-[#FFCA28]",
+  vite: "text-[#646CFF]",
+  live: "text-white",
+};
+
+// Maps icon names to their React components
+const iconComponentMap: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  github: FaGithub,
+  linkedin: LiaLinkedinIn,
+  twitter: BsTwitter,
+  email: IoMdMail,
+  website: CiGlobe,
+  react: FaReact,
+  nextjs: RiNextjsFill,
+  tailwindcss: TbBrandTailwind,
+  typescript: SiTypescript,
+  javascript: SiJavascript,
+  nodejs: FaNodeJs,
+  mongodb: SiMongodb,
+  expressjs: SiExpress,
+  graphql: SiGraphql,
+  chakraui: SiChakraui,
+  sass: SiSass,
+  "framer-motion": SiFramer,
+  redux: SiRedux,
+  webpack: SiWebpack,
+  npm: SiNpm,
+  firebase: IoLogoFirebase,
+  vite: SiVite,
+  live: GoProjectSymlink,
+};
+
+interface RenderIconProps {
   name: string;
   url?: string;
   className?: string;
+  withColor?: boolean;
 }
 
-export function RenderIcon({ name, url, className }: Props) {
+export function RenderIcon({
+  name,
+  url,
+  className,
+  withColor = false,
+}: RenderIconProps) {
   const normalized = name.toLowerCase();
+  const IconComponent = iconComponentMap[normalized];
 
-  // Renders an icon as a clickable link if url provided,
-  // with special style for "live" icons.
-  const renderLinkIcon = (icon: React.ReactNode) => {
-    if (!url) return icon;
+  const iconClassName = cn(
+    withColor && iconColorMap[normalized],
+    !withColor && "text-muted-foreground",
+    className
+  );
 
-    // All other links
-    return (
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        tabIndex={0}
+  // Renders icon node (component or fallback text node)
+  const iconNode = IconComponent ? (
+    <IconComponent className={iconClassName} />
+  ) : (
+    <div className={iconClassName}>{name}</div>
+  );
+
+  // Tooltip logic with group (for proper hover/focus behavior)
+  const label =
+    normalized === "framer-motion"
+      ? "Framer Motion"
+      : normalized.charAt(0).toUpperCase() + normalized.slice(1);
+
+  const tooltipNode = (
+    <div className="relative inline-block group focus-within:outline-none">
+      {url ? (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="focus:outline-none"
+          tabIndex={0}
+        >
+          {iconNode}
+        </a>
+      ) : (
+        iconNode
+      )}
+      {/* Tooltip (visible on hover/focus) */}
+      <div
+        className={cn(
+          "pointer-events-none absolute z-20 left-1/2 -translate-x-1/2",
+          "bottom-full mb-2 px-2 py-1 rounded bg-popover text-xs text-popover-foreground shadow",
+          "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-150",
+          "whitespace-nowrap"
+        )}
+        role="tooltip"
       >
-        {icon}
-      </a>
-    );
-  };
+        {label}
+      </div>
+    </div>
+  );
 
-  switch (normalized) {
-    case "github":
-      return renderLinkIcon(
-        <FaGithub
-          className={cn("text-[#181717] dark:text-[#f5f5f5]", className)}
-        />
-      );
-    case "linkedin":
-      return renderLinkIcon(
-        <LiaLinkedinIn className={cn("text-[#0A66C2]", className)} />
-      );
-    case "twitter":
-      return renderLinkIcon(
-        <BsTwitter className={cn("text-[#1DA1F2]", className)} />
-      );
-    case "email":
-      return renderLinkIcon(
-        <IoMdMail className={cn("text-gray-400", className)} />
-      );
-    case "website":
-      return renderLinkIcon(
-        <CiGlobe className={cn("text-blue-500", className)} />
-      );
-    case "react":
-      return renderLinkIcon(
-        <FaReact className={cn("text-[#61DAFB]", className)} />
-      );
-    case "nextjs":
-      return renderLinkIcon(
-        <RiNextjsFill
-          className={cn("text-[#000] dark:text-white", className)}
-        />
-      );
-    case "tailwindcss":
-      return renderLinkIcon(
-        <TbBrandTailwind className={cn("text-[#38BDF8]", className)} />
-      );
-    case "typescript":
-      return renderLinkIcon(
-        <SiTypescript className={cn("text-[#3178C6]", className)} />
-      );
-    case "javascript":
-      return renderLinkIcon(
-        <SiJavascript className={cn("text-[#F7DF1E]", className)} />
-      );
-    case "nodejs":
-      return renderLinkIcon(
-        <FaNodeJs className={cn("text-[#339933]", className)} />
-      );
-    case "mongodb":
-      return renderLinkIcon(
-        <SiMongodb className={cn("text-[#47A248]", className)} />
-      );
-    case "expressjs":
-      return renderLinkIcon(
-        <SiExpress className={cn("text-gray-400", className)} />
-      );
-    case "graphql":
-      return renderLinkIcon(
-        <SiGraphql className={cn("text-[#E10098]", className)} />
-      );
-    case "chakraui":
-      return renderLinkIcon(
-        <SiChakraui className={cn("text-[#319795]", className)} />
-      );
-    case "sass":
-      return renderLinkIcon(
-        <SiSass className={cn("text-[#CC6699]", className)} />
-      );
-    case "framer-motion":
-      return renderLinkIcon(
-        <SiFramer className={cn("text-[#0055FF] dark:text-white", className)} />
-      );
-    case "redux":
-      return renderLinkIcon(
-        <SiRedux className={cn("text-[#764ABC]", className)} />
-      );
-    case "webpack":
-      return renderLinkIcon(
-        <SiWebpack className={cn("text-[#8DD6F9]", className)} />
-      );
-    case "npm":
-      return renderLinkIcon(
-        <SiNpm className={cn("text-[#CB3837]", className)} />
-      );
-    case "firebase":
-      return renderLinkIcon(
-        <IoLogoFirebase className={cn("text-[#FFCA28]", className)} />
-      );
-    case "vite":
-      return renderLinkIcon(
-        <SiVite className={cn("text-[#646CFF]", className)} />
-      );
-    case "live":
-      return renderLinkIcon(
-        <GoProjectSymlink className={cn("text-white", className)} />
-      );
-    default:
-      return (
-        <div className={cn("w-5 h-5 text-muted-foreground", className)}>
-          {name}
-        </div>
-      );
-  }
+  return tooltipNode;
 }
