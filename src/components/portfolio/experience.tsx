@@ -1,4 +1,6 @@
 import type { Experience as ExperienceType } from "@/types/portfolio";
+import Image from "next/image";
+import { RenderIcon } from "../Icons";
 
 interface ExperienceProps {
   experiences: ExperienceType[];
@@ -11,7 +13,7 @@ interface ExperienceProps {
  */
 export function Experience({
   experiences,
-  title = "Experience",
+  title = "Experiences",
 }: ExperienceProps) {
   return (
     <section className="section-spacing">
@@ -35,33 +37,63 @@ export function Experience({
               )}
 
               {/* Timeline dot */}
-              <div className="absolute left-0 top-2 w-[11px] h-[11px] rounded-full border-2 border-[var(--portfolio-accent)] bg-background" />
+              <div className="absolute left-0 top-2 w-[11px] h-[11px] rounded-full border-2 " />
 
               {/* Content card */}
-              <div className="rounded-xl border border-border bg-card p-6 card-shadow">
+              <div className="rounded-2xl border border-border bg-card p-6 card-shadow space-y-4">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-                  <div>
-                    <h3 className="font-display text-lg font-medium">
-                      {exp.role}
-                    </h3>
-                    <p className="text-muted-foreground">{exp.company}</p>
+                <div className="flex items-center gap-4 justify-between">
+                  {/* Company Logo */}
+                  <div className="flex items-center gap-4">
+                    {exp.logoUrl && (
+                      <div className="w-10 h-10 rounded-lg bg-[#111111] flex items-center justify-center overflow-hidden shrink-0">
+                        <Image
+                          src={exp.logoUrl}
+                          alt={exp.company}
+                          width={40}
+                          height={40}
+                          className="object-contain w-8 h-8"
+                        />
+                      </div>
+                    )}
+
+                    {/* Company, links, and role */}
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-display text-base md:text-lg font-medium text-white">
+                          {exp.company}
+                        </h3>
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        {exp.role}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-sm text-muted-foreground whitespace-nowrap">
-                    {exp.period}
-                  </span>
+
+                  <div className="flex flex-col items-end gap-2">
+                    <span className="text-sm text-muted-foreground">
+                      {exp.period}
+                    </span>
+                    <span className="text-sm text-muted-foreground font-medium">
+                      {exp.place}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {exp.techStack?.map((tech, idx) => (
+                    <RenderIcon key={idx} name={tech} />
+                  ))}
                 </div>
 
                 {/* Highlights */}
-                <ul className="space-y-2">
+                <ul className="space-y-2 mt-8">
                   {exp.highlights.map((highlight, idx) => (
                     <li
                       key={idx}
                       className="text-sm text-foreground/80 leading-relaxed flex gap-3"
                     >
-                      <span className="text-[var(--portfolio-accent)] mt-1.5 flex-shrink-0">
-                        •
-                      </span>
+                      <span className="shrink-0">•</span>
                       {highlight}
                     </li>
                   ))}

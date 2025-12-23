@@ -19,7 +19,7 @@ export function ProjectGrid({
   // Separates featured projects for potential highlight treatment
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
-  const allProjects = [...featuredProjects, ...otherProjects];
+  const allProjects = [...featuredProjects, ...otherProjects].slice(0, 4);
 
   return (
     <section className="section-spacing">
@@ -32,14 +32,10 @@ export function ProjectGrid({
           <p className="text-muted-foreground">{subtitle}</p>
         </div>
 
-        {/* Pinterest-style grid */}
+        {/* Project grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 items-start">
           {allProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className="animate-fade-in-up h-full"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <div key={project.id} className="animate-fade-in-up h-full">
               <ProjectCard project={project} />
             </div>
           ))}

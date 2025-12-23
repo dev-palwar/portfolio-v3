@@ -35,6 +35,8 @@ export interface Experience {
   period: string;
   highlights: string[];
   logoUrl?: string;
+  techStack?: string[];
+  place?: string;
 }
 
 /** Represents the complete portfolio data structure. */
@@ -47,4 +49,3 @@ export interface PortfolioData {
   projects: Project[];
   experience: Experience[];
 }
-

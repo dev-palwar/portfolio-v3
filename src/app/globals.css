@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 
 @import "tailwindcss";
 
@@ -19,13 +18,12 @@ button {
 :root {
     /* Typography */
     --font-geist: "Geist", sans-serif;
-    --font-display: "Cormorant Garamond", Georgia, serif;
 
     /* Base radius */
     --radius: 0.625rem;
 
     /* Portfolio accent - soft rose/coral inspired by reference */
-    --portfolio-accent: oklch(0.72 0.12 25);
+    --portfolio-accent: white;
     --portfolio-accent-muted: oklch(0.72 0.08 25 / 20%);
 
     /* Section spacing */
@@ -168,16 +166,6 @@ button {
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
-
-    body {
-        @apply bg-background text-foreground;
-    }
 }
 
 /* Portfolio-specific utilities */

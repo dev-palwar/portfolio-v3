@@ -4,8 +4,8 @@ import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Developer",
-  description: "A minimalistic developer portfolio showcasing projects and experience.",
+  title: "Dev's Portfolio",
+  description: "A developer's portfolio showcasing projects and experience.",
 };
 
 export default function RootLayout({
@@ -15,6 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <link rel="icon" href="/me.jpg" type="image/jpg" />
       <body className="antialiased">
         <ThemeProvider
           attribute="class"

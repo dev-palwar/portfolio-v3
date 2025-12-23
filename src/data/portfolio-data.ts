@@ -1,3 +1,5 @@
+import finocoLogo from "@/assets/Finoco Blue Icon.png";
+import lumaraLogo from "@/assets/lumara-jewels.jpeg";
 import type { PortfolioData } from "@/types/portfolio";
 
 /**
@@ -8,10 +10,8 @@ export const portfolioData: PortfolioData = {
   name: "Dev Palwar",
   tagline: "Full Stack Developer",
   bannerText: "curious.",
-  bio: `A passionate developer crafting digital experiences that matter.
-I build things for the web with a focus on clean code, thoughtful design,
-and user-centric solutions. Currently exploring the intersection of
-technology and creativity.`,
+  bio: `Hey there! I'm Dev - and yes, that's my real name! In what might be the universe's most fitting coincidence, I also happen to be a developer. Talk about destiny, right?. Well I'm currently pursuing my Master's in Computer Applications. My aim is to learn everything quickly and graduate at a senior level that's why I like to work with startups. I also do freelance work when I have nothing to do or just build cool stuff and share it on twt to impress those cool anime dp anons. So far I have worked with Javascript, on both frontend and backend. Right now, I'm learning Devops and advanced backends.`,
+
   socials: [
     {
       platform: "github",
@@ -34,6 +34,7 @@ technology and creativity.`,
       label: "Email",
     },
   ],
+
   projects: [
     {
       id: "1",
@@ -214,7 +215,7 @@ technology and creativity.`,
       description:
         "Just one of the many assignment projects I worked on, but I found it cool enough to share here. It doesn’t have any useful features at the moment, but given its structure, it can be scaled to include things like posting tweets, liking, and auto-replying to comments",
       imageUrl: "https://i.ibb.co/2Ss63V9/twt-follow-all-ext.webp",
-      tags: ["typescript", "react", "web-ext"],
+      tags: ["typescript", "react"],
       links: [
         {
           label: "Live",
@@ -227,39 +228,52 @@ technology and creativity.`,
       ],
     },
   ],
+
   experience: [
     {
       id: "exp-1",
-      company: "Tech Company",
-      role: "Senior Software Engineer",
-      period: "2022 - Present",
+      company: "Finoco AI",
+      role: "Frontend Developer Intern",
+      period: "June 2025 - Present",
       highlights: [
-        "Led development of microservices architecture serving 1M+ users",
-        "Mentored junior developers and established coding standards",
-        "Reduced deployment time by 60% through CI/CD improvements",
+        "Builds scalable, responsive interfaces using React and modern web tech.",
       ],
+      logoUrl: finocoLogo.src,
+      techStack: [
+        "react",
+        "nextjs",
+        "tailwindcss",
+        "typescript",
+        "nodejs",
+        "expressjs",
+        "mongodb",
+      ],
+      place: "Bangalore, India | Remote",
     },
     {
       id: "exp-2",
-      company: "Startup Inc",
-      role: "Full Stack Developer",
-      period: "2020 - 2022",
+      company: "Lumara Jewels",
+      role: "Frontend Developer Intern",
+      period: "Dec 2023 - May 2024",
       highlights: [
-        "Built and launched MVP that secured $2M in funding",
-        "Implemented real-time features using WebSockets",
-        "Collaborated with design team to improve UX",
+        "Translates Figma designs into a fully functional homepage using Sass.",
+        "Implements a backend-driven UI.",
+        "Implements authentication mechanisms, including manual and OTP-based login.",
+        "Streamlines the flow from the product details page to the cart page.",
+        "Develops a comprehensive product details page, fetching data from the backend and integrating components like carousels, image galleries, and product customization options for jewelry according to their metals, diamonds, and size.",
+        "Creates a dynamic cart page with three subpages: cart details, address selection, and checkout, ensuring a smooth checkout process.",
       ],
-    },
-    {
-      id: "exp-3",
-      company: "Agency Studio",
-      role: "Frontend Developer",
-      period: "2018 - 2020",
-      highlights: [
-        "Delivered 20+ client projects across various industries",
-        "Introduced modern React practices to the team",
-        "Created reusable component library",
+      logoUrl: lumaraLogo.src,
+      techStack: [
+        "react",
+        "nextjs",
+        "tailwindcss",
+        "typescript",
+        "nodejs",
+        "expressjs",
+        "mongodb",
       ],
+      place: "Delhi, India | Remote",
     },
   ],
 };
