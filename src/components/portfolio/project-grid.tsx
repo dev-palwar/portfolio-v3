@@ -1,35 +1,28 @@
 import type { Project } from "@/types/portfolio";
 import { ProjectCard } from "./project-card";
+import { Button } from "../ui/button";
+import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
+import { Typography } from "../ui/typography";
 
 interface ProjectGridProps {
   projects: Project[];
   title?: string;
-  subtitle?: string;
 }
 
-/**
- * Project grid component.
- * Displays projects in a Pinterest-style responsive grid.
- */
-export function ProjectGrid({
-  projects,
-  title = "Featured Work",
-  subtitle = "Recent projects and experiments",
-}: ProjectGridProps) {
-  // Separates featured projects for potential highlight treatment
+export function ProjectGrid({ projects, title }: ProjectGridProps) {
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
   const allProjects = [...featuredProjects, ...otherProjects].slice(0, 4);
 
   return (
-    <section className="section-spacing">
-      <div className="">
+    <section className="">
+      <div className="spacing-secondary">
         {/* Section header */}
-        <div className="mb-12 animate-fade-in-up">
-          <h2 className="font-display text-2xl md:text-3xl font-medium mb-2">
-            {title}
-          </h2>
-          <p className="text-muted-foreground">{subtitle}</p>
+        <div className="animate-fade-in-up">
+          <Typography variant="heading1">
+            <span className="text-muted-foreground">{">"}</span> {title}
+          </Typography>
         </div>
 
         {/* Project grid */}
@@ -39,6 +32,15 @@ export function ProjectGrid({
               <ProjectCard project={project} />
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Button asChild>
+            <Link href="/projects">
+              <ArrowRightIcon className="w-4 h-4" />
+              View all projects
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

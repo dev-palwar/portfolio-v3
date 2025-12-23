@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
+
 @import "tailwindcss";
 
 @import "tw-animate-css";
@@ -7,9 +8,10 @@
 @custom-variant dark (&:is(.dark *));
 
 body {
-    @apply w-[50%] mx-auto bg-[#0a0a0a] scroll-smooth;
+    @apply w-[50%] mx-auto bg-[#0f0f0f] scroll-smooth;
     font-family: var(--font-geist);
 }
+
 
 button {
     @apply cursor-pointer;
@@ -40,7 +42,7 @@ button {
     --placeholder-border: oklch(0.88 0 0);
 
     /* Base colors */
-    --background: oklch(0.995 0 0);
+    --background: #0f0f0f;
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
@@ -137,7 +139,7 @@ button {
     /* Base colors - dark mode */
     --background: oklch(0.12 0 0);
     --foreground: oklch(0.985 0 0);
-    --card: oklch(0.16 0 0);
+    --card: lab(2.75381% 0 0);
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.16 0 0);
     --popover-foreground: oklch(0.985 0 0);
@@ -177,6 +179,10 @@ button {
     .section-spacing {
         padding-top: var(--section-spacing);
         /* padding-bottom: var(--section-spacing); */
+    }
+
+    .spacing-secondary {
+        @apply space-y-8;
     }
 
     .section-spacing-lg {

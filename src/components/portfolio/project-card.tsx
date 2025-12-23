@@ -6,17 +6,14 @@ import type { Project } from "@/types/portfolio";
 import { RenderIcon } from "../Icons";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Typography } from "../ui/typography";
 
 interface ProjectCardProps {
   project: Project;
 }
 
-/**
- * Project card component.
- * Displays project with image (or placeholder), title, description, and tags.
- */
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { title, description, imageUrl, tags, links } = project;
+  const { title, description, imageUrl, techStack, links } = project;
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -67,17 +64,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex-1 flex flex-col bg-[#171717] justify-between">
-        <div>
-          <h3 className="text-xl font-medium mb-2">{title}</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+      <div className="p-5 flex-1 flex flex-col bg-[#0a1015] justify-between gap-8">
+        <div className="flex flex-col gap-4">
+          <Typography variant="heading2">{title}</Typography>
+          <Typography variant="body" className="line-clamp-3">
             {description}
-          </p>
+          </Typography>
         </div>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-3 mb-4">
-          {tags.map((tag) => (
+        {/* techStack */}
+        <div className="flex flex-wrap gap-3">
+          {techStack.map((tag) => (
             <RenderIcon key={tag} name={tag} className="text-xl" />
           ))}
         </div>

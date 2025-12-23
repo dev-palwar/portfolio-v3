@@ -22,9 +22,12 @@ export interface Project {
   title: string;
   description: string;
   imageUrl?: string;
-  tags: string[];
+  techStack: string[];
   links?: ProjectLink[];
   featured?: boolean;
+  details: {
+    features: string[];
+  }[];
 }
 
 /** Represents a work experience entry. */
@@ -39,6 +42,24 @@ export interface Experience {
   place?: string;
 }
 
+/** Represents a testimonial from a client or collaborator. */
+export interface Testimonial {
+  id: string;
+  quote: string;
+  name: string;
+  role?: string;
+  avatarUrl?: string;
+}
+
+/** Represents a single writing entry. */
+export interface Writing {
+  id: string;
+  title: string;
+  date: string;
+  coverImageUrl?: string;
+  contentPath: string;
+}
+
 /** Represents the complete portfolio data structure. */
 export interface PortfolioData {
   name: string;
@@ -48,4 +69,6 @@ export interface PortfolioData {
   socials: SocialLink[];
   projects: Project[];
   experience: Experience[];
+  testimonials: Testimonial[];
+  writings: Writing[];
 }

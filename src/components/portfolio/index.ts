@@ -8,5 +8,5 @@ export { Profile } from "./profile";
 export { ProjectCard } from "./project-card";
 export { ProjectGrid } from "./project-grid";
 export { Experience } from "./experience";
-export { Contact } from "./contact";
-
+export { Testimonials } from "./testimonials";
+export { RecentWriting } from "./recent-writing";

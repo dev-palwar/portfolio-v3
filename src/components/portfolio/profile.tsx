@@ -1,5 +1,7 @@
 import { Github, Linkedin, Twitter, Mail, Globe } from "lucide-react";
 import type { SocialLink } from "@/types/portfolio";
+import { Button } from "../ui/button";
+import { Typography } from "../ui/typography";
 
 interface ProfileProps {
   name: string;
@@ -8,7 +10,6 @@ interface ProfileProps {
   socials: SocialLink[];
 }
 
-/** Maps social platform to corresponding icon. */
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
@@ -17,21 +18,20 @@ const socialIcons = {
   website: Globe,
 } as const;
 
-/**
- * Profile section component.
- * Displays name, tagline, bio, and social links.
- */
 export function Profile({ name, tagline, bio, socials }: ProfileProps) {
   return (
-    <section className="section-spacing">
-      <div className="">
+    <section className="">
+      <div className="space-y-8">
         {/* Header with name and social links */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 animate-fade-in-up">
-          <div>
-            <h1 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-              {name}
-            </h1>
-            <p className="text-muted-foreground mt-1">{tagline}</p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-in-up">
+          <div className="flex flex-col gap-1">
+            <Typography className="text-3xl md:text-4xl font-medium tracking-tight">
+              <span className="font-bold flex items-baseline gap-[5px] text-[antiquewhite]">
+                {name}
+                <span className="block rounded-full h-2 w-2 bg-[antiquewhite]" />
+              </span>
+            </Typography>
+            <Typography>{tagline}</Typography>
           </div>
 
           {/* Social links */}
@@ -55,9 +55,7 @@ export function Profile({ name, tagline, bio, socials }: ProfileProps) {
         </div>
 
         {/* Bio */}
-        <p className="text-foreground/80 leading-relaxed text-base md:text-lg whitespace-pre-line animate-fade-in-up animate-stagger-1">
-          {bio}
-        </p>
+        <Typography>{bio}</Typography>
       </div>
     </section>
   );

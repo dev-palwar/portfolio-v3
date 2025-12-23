@@ -1,6 +1,7 @@
 import type { Experience as ExperienceType } from "@/types/portfolio";
 import Image from "next/image";
 import { RenderIcon } from "../Icons";
+import { Typography } from "../ui/typography";
 
 interface ExperienceProps {
   experiences: ExperienceType[];
@@ -11,17 +12,14 @@ interface ExperienceProps {
  * Experience section component.
  * Displays work experience with a clean timeline aesthetic.
  */
-export function Experience({
-  experiences,
-  title = "Experiences",
-}: ExperienceProps) {
+export function Experience({ experiences, title }: ExperienceProps) {
   return (
-    <section className="section-spacing">
-      <div className=" ">
+    <section className="">
+      <div className="spacing-secondary">
         {/* Section header */}
-        <h2 className="font-display text-2xl md:text-3xl font-medium mb-12 animate-fade-in-up">
-          {title}
-        </h2>
+        <Typography variant="heading1" className="animate-fade-in-up">
+          <span className="text-muted-foreground">{">"}</span> {title}
+        </Typography>
 
         {/* Experience list */}
         <div className="space-y-0">
@@ -40,7 +38,7 @@ export function Experience({
               <div className="absolute left-0 top-2 w-[11px] h-[11px] rounded-full border-2 " />
 
               {/* Content card */}
-              <div className="rounded-2xl border border-border bg-card p-6 card-shadow space-y-4">
+              <div className="rounded-2xl border border-border p-6 card-shadow space-y-4">
                 {/* Header */}
                 <div className="flex items-center gap-4 justify-between">
                   {/* Company Logo */}
@@ -60,23 +58,17 @@ export function Experience({
                     {/* Company, links, and role */}
                     <div className="flex flex-col">
                       <div className="flex items-center gap-2">
-                        <h3 className="font-display text-base md:text-lg font-medium text-white">
+                        <Typography variant="heading2">
                           {exp.company}
-                        </h3>
+                        </Typography>
                       </div>
-                      <span className="text-sm text-muted-foreground">
-                        {exp.role}
-                      </span>
+                      <Typography variant="bodySm">{exp.role}</Typography>
                     </div>
                   </div>
 
                   <div className="flex flex-col items-end gap-2">
-                    <span className="text-sm text-muted-foreground">
-                      {exp.period}
-                    </span>
-                    <span className="text-sm text-muted-foreground font-medium">
-                      {exp.place}
-                    </span>
+                    <Typography variant="helpText">{exp.period}</Typography>
+                    <Typography variant="helpText">{exp.place}</Typography>
                   </div>
                 </div>
 
@@ -89,12 +81,9 @@ export function Experience({
                 {/* Highlights */}
                 <ul className="space-y-2 mt-8">
                   {exp.highlights.map((highlight, idx) => (
-                    <li
-                      key={idx}
-                      className="text-sm text-foreground/80 leading-relaxed flex gap-3"
-                    >
+                    <li key={idx} className="flex items-baseline gap-3">
                       <span className="shrink-0">•</span>
-                      {highlight}
+                      <Typography variant="listItem">{highlight}</Typography>
                     </li>
                   ))}
                 </ul>
