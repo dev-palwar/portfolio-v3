@@ -1,7 +1,7 @@
 "use client";
 import { RenderIcon } from "@/components/Icons";
 import { ProjectCard } from "@/components/portfolio";
-import { BackButton } from "@/components/ui/back-button";
+import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import { portfolioData } from "@/data/portfolio-data";
 import { Project } from "@/types/portfolio";
@@ -35,7 +35,7 @@ export default function Projects() {
   return (
     <main className="min-h-screen section-spacing">
       <div className="mb-12">
-        <BackButton label="Back to home" />
+        <NavigationButton label="Back to home" />
       </div>
 
       <div className="flex flex-col gap-4 border-b border-border pb-12">

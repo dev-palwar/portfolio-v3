@@ -1,4 +1,4 @@
-import { BackButton } from "@/components/ui/back-button";
+import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import { portfolioData } from "@/data/portfolio-data";
 import Link from "next/link";
@@ -9,7 +9,7 @@ export default function WritingsPage() {
   return (
     <main className="min-h-screen section-spacing">
       <div className="mb-12">
-        <BackButton label="Back to home" />
+        <NavigationButton label="Back to home" />
       </div>
 
       <div className="flex flex-col gap-4 border-b border-border pb-12">
@@ -24,7 +24,12 @@ export default function WritingsPage() {
 
       <div className="section-spacing">
         <div className="spacing-secondary">
-          <Typography variant="heading2">All writings</Typography>
+          <Typography variant="heading2">
+            All writings{" "}
+            <span className="text-xs text-muted-foreground">
+              ({writings.length})
+            </span>
+          </Typography>
           <div className="mt-10 space-y-8">
             {writings.map((writing, index) => (
               <div
@@ -33,7 +38,9 @@ export default function WritingsPage() {
                 style={{ animationDelay: `${index * 0.06}s` }}
               >
                 <Link href={`/writings/${writing.id}`}>
-                  <Typography variant="heading2">{writing.title}</Typography>
+                  <Typography variant="heading2" className="hover:underline">
+                    {writing.title}
+                  </Typography>
                 </Link>
                 <Typography
                   variant="helpText"

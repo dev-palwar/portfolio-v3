@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     {links.map((link) => (
                       <RenderIcon
                         key={link.label}
-                        name={link.label}
+                        name="next"
                         url={link.url}
                         className="cursor-pointer text-4xl text-white"
                       />
@@ -64,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex-1 flex flex-col bg-[#0a1015] justify-between gap-8">
+      <div className="p-5 flex-1 flex flex-col card-bg justify-between gap-8">
         <div className="flex flex-col gap-4">
           <Typography variant="heading2">{title}</Typography>
           <Typography variant="body" className="line-clamp-3">

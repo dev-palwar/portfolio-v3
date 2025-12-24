@@ -12,14 +12,22 @@ body {
     font-family: var(--font-geist);
 }
 
+.card-bg {
+    background-color: var(--color-card-bg);
+}
 
 button {
     @apply cursor-pointer;
 }
 
+
+
 :root {
     /* Typography */
     --font-geist: "Geist", sans-serif;
+
+    /* Colors */
+    --color-card-bg: #0a1015;
 
     /* Base radius */
     --radius: 0.625rem;

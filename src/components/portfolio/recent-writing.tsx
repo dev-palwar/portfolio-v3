@@ -1,6 +1,9 @@
 import type { Writing } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
 import Link from "next/link";
+import { NavigationButton } from "@/components/ui/navigation-button";
+import { RenderIcon } from "../Icons";
+import { Button } from "../ui/button";
 
 interface RecentWritingProps {
   writings: Writing[];
@@ -36,6 +39,17 @@ export function RecentWriting({
               </Typography>
             </div>
           ))}
+        </div>
+
+        <div className="flex gap-1">
+          <Button
+            variant={"link"}
+            href="/writings"
+            className="p-0 text-muted-foreground"
+          >
+            View all writings
+            <RenderIcon name="next" />
+          </Button>
         </div>
       </div>
     </section>

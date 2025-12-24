@@ -28,7 +28,7 @@ export function Testimonials({ testimonials, title }: TestimonialsProps) {
 
               <div className="flex items-center gap-3">
                 {testimonial.avatarUrl && (
-                  <div className="relative h-10 w-10 overflow-hidden rounded-full border border-border bg-[#111111]">
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full border border-border">
                     <Image
                       src={testimonial.avatarUrl}
                       alt={testimonial.name}

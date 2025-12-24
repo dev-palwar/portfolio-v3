@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { Typography } from "../ui/typography";
+import { RenderIcon } from "../Icons";
 
 interface ProjectGridProps {
   projects: Project[];
@@ -34,11 +35,12 @@ export function ProjectGrid({ projects, title }: ProjectGridProps) {
           ))}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-end">
           <Button asChild>
             <Link href="/projects">
-              <ArrowRightIcon className="w-4 h-4" />
               View all projects
+              <RenderIcon name="next" className="text-black" />
+              {/* <ArrowRightIcon /> */}
             </Link>
           </Button>
         </div>

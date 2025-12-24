@@ -405,13 +405,13 @@ export const portfolioData: PortfolioData = {
     {
       id: "firefox-custom-css",
       title: "Firefox custom CSS",
-      date: "Dec 7, 2025",
+      date: "9 Jul, 2025",
       contentPath: "src/content/writings/firefox-custom-css.md",
     },
     {
       id: "kitty-zsh-guide",
       title: "Kitty + Zsh guide",
-      date: "Aug 29, 2025",
+      date: "16 Mar, 2025",
       contentPath: "src/content/writings/kitty-zsh-guide.md",
     },
   ],

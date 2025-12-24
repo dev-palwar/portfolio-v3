@@ -29,7 +29,6 @@ export default function Home() {
       <ProjectGrid projects={projects} title="Featured Work" />
       <RecentWriting writings={writings} />
       <hr className="border-white/10" />
-      <Testimonials testimonials={testimonials} title="Testimonials" />
     </main>
   );
 }

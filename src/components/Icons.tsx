@@ -23,6 +23,7 @@ import { BsTwitter } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
 import { cn } from "@/lib/utils";
+import { GoArrowRight } from "react-icons/go";
 
 // Maps icon names to color classes for colored display
 const iconColorMap: Record<string, string> = {
@@ -49,6 +50,7 @@ const iconColorMap: Record<string, string> = {
   firebase: "text-[#FFCA28]",
   vite: "text-[#646CFF]",
   live: "text-white",
+  next: "text-muted-foreground",
 };
 
 // Maps icon names to their React components
@@ -79,6 +81,7 @@ const iconComponentMap: Record<
   firebase: IoLogoFirebase,
   vite: SiVite,
   live: GoProjectSymlink,
+  next: GoArrowRight,
 };
 
 interface RenderIconProps {

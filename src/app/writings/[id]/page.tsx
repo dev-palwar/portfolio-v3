@@ -1,4 +1,4 @@
-import { BackButton } from "@/components/ui/back-button";
+import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import { portfolioData } from "@/data/portfolio-data";
 import ReactMarkdown from "react-markdown";
@@ -36,7 +36,7 @@ export default async function WritingPage({
       {/* Header with navigation */}
       <div className="sticky top-0 z-10 backdrop-blur-xl ">
         <div className="max-w-3xl mx-auto px-4 py-4">
-          <BackButton label="Back to writings" />
+          <NavigationButton label="Back to writings" />
         </div>
       </div>
 
