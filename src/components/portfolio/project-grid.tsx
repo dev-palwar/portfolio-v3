@@ -39,7 +39,7 @@ export function ProjectGrid({ projects, title }: ProjectGridProps) {
           <Button asChild>
             <Link href="/projects">
               View all projects
-              <RenderIcon name="next" className="text-black" />
+              <RenderIcon name="next" className="text-secondary" />
               {/* <ArrowRightIcon /> */}
             </Link>
           </Button>

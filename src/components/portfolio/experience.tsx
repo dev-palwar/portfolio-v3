@@ -44,7 +44,7 @@ export function Experience({ experiences, title }: ExperienceProps) {
                   {/* Company Logo */}
                   <div className="flex items-center gap-4">
                     {exp.logoUrl && (
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden shrink-0">
                         <Image
                           src={exp.logoUrl}
                           alt={exp.company}

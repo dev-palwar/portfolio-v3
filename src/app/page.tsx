@@ -28,7 +28,7 @@ export default function Home() {
       <Experience experiences={experience} title="Experiences" />
       <ProjectGrid projects={projects} title="Featured Work" />
       <RecentWriting writings={writings} />
-      <hr className="border-white/10" />
+      <hr className="border-border" />
     </main>
   );
 }

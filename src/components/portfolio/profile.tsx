@@ -26,9 +26,9 @@ export function Profile({ name, tagline, bio, socials }: ProfileProps) {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-in-up">
           <div className="flex flex-col gap-1">
             <Typography className="text-3xl md:text-4xl font-medium tracking-tight">
-              <span className="font-bold flex items-baseline gap-[5px] text-[antiquewhite]">
+              <span className="font-bold flex items-baseline gap-[5px] text-portfolio-accent">
                 {name}
-                <span className="block rounded-full h-2 w-2 bg-[antiquewhite]" />
+                <span className="block rounded-full h-2 w-2 bg-portfolio-accent" />
               </span>
             </Typography>
             <Typography>{tagline}</Typography>

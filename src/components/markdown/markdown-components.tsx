@@ -79,7 +79,7 @@ export const markdownComponents: Components = {
   p({ node, children, ...props }) {
     return (
       <p
-        className="text-[1.0625rem] leading-[1.8] text-neutral-300 mb-5 last:mb-0"
+        className="text-[1.0625rem] leading-[1.8] text-muted-foreground mb-5 last:mb-0"
         {...props}
       >
         {children}
@@ -113,7 +113,7 @@ export const markdownComponents: Components = {
   li({ node, children, ...props }) {
     return (
       <li
-        className="relative pl-6 text-[1.0625rem] leading-[1.75] text-neutral-300 before:content-['•'] before:absolute before:left-0 before:text-neutral-500 before:font-bold"
+        className="relative pl-6 text-[1.0625rem] leading-[1.75] text-muted-foreground before:content-['•'] before:absolute before:left-0 before:text-muted-foreground/60 before:font-bold"
         {...props}
       >
         {children}
@@ -128,7 +128,7 @@ export const markdownComponents: Components = {
     if (isInline) {
       return (
         <code
-          className="px-1.5 py-0.5 mx-0.5 rounded-md bg-neutral-800/80 text-amber-200/90 text-[0.9375rem] font-mono border border-neutral-700/50"
+          className="px-1.5 py-0.5 mx-0.5 rounded-md bg-muted text-foreground text-[0.9375rem] font-mono border border-border"
           {...props}
         >
           {children}
@@ -148,7 +148,7 @@ export const markdownComponents: Components = {
   pre({ node, children, ...props }) {
     return (
       <pre
-        className="my-6 p-4 rounded-xl bg-neutral-900 border border-neutral-800 overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent"
+        className="my-6 p-4 rounded-xl bg-card border border-border overflow-x-auto"
         {...props}
       >
         {children}
@@ -163,7 +163,7 @@ export const markdownComponents: Components = {
 
     return (
       <span className="block my-8">
-        <span className="block relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/50">
+        <span className="block relative rounded-xl overflow-hidden border border-border bg-card/50">
           <img
             src={resolvedSrc}
             alt={alt || ""}
@@ -172,7 +172,7 @@ export const markdownComponents: Components = {
           />
         </span>
         {alt && alt !== src?.split("/").pop() && (
-          <span className="block mt-3 text-center text-sm text-neutral-500 italic">
+          <span className="block mt-3 text-center text-sm text-muted-foreground italic">
             {alt}
           </span>
         )}
@@ -189,7 +189,7 @@ export const markdownComponents: Components = {
         href={href}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
-        className="text-blue-400 hover:text-blue-300 underline decoration-blue-400/30 underline-offset-2 hover:decoration-blue-300/60 transition-colors"
+        className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-2 hover:decoration-primary/60 transition-colors"
         {...props}
       >
         {children}
@@ -209,7 +209,7 @@ export const markdownComponents: Components = {
   // Italic text
   em({ node, children, ...props }) {
     return (
-      <em className="italic text-neutral-200" {...props}>
+      <em className="italic text-foreground/90" {...props}>
         {children}
       </em>
     );
@@ -219,7 +219,7 @@ export const markdownComponents: Components = {
   blockquote({ node, children, ...props }) {
     return (
       <blockquote
-        className="my-6 pl-5 border-l-[3px] border-neutral-600 italic text-neutral-400"
+        className="my-6 pl-5 border-l-[3px] border-border italic text-muted-foreground"
         {...props}
       >
         {children}
@@ -231,7 +231,7 @@ export const markdownComponents: Components = {
   hr({ node, ...props }) {
     return (
       <hr
-        className="my-10 border-none h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent"
+        className="my-10 border-none h-px bg-gradient-to-r from-transparent via-border to-transparent"
         {...props}
       />
     );
@@ -240,7 +240,7 @@ export const markdownComponents: Components = {
   // Tables with clean styling
   table({ node, children, ...props }) {
     return (
-      <div className="my-6 overflow-x-auto rounded-lg border border-neutral-800">
+      <div className="my-6 overflow-x-auto rounded-lg border border-border">
         <table
           className="w-full text-sm text-left"
           {...props}
@@ -253,7 +253,7 @@ export const markdownComponents: Components = {
 
   thead({ node, children, ...props }) {
     return (
-      <thead className="bg-neutral-900 text-neutral-300 border-b border-neutral-800" {...props}>
+      <thead className="bg-card text-foreground border-b border-border" {...props}>
         {children}
       </thead>
     );
@@ -261,7 +261,7 @@ export const markdownComponents: Components = {
 
   tbody({ node, children, ...props }) {
     return (
-      <tbody className="divide-y divide-neutral-800" {...props}>
+      <tbody className="divide-y divide-border" {...props}>
         {children}
       </tbody>
     );
@@ -269,7 +269,7 @@ export const markdownComponents: Components = {
 
   tr({ node, children, ...props }) {
     return (
-      <tr className="hover:bg-neutral-800/30 transition-colors" {...props}>
+      <tr className="hover:bg-muted/30 transition-colors" {...props}>
         {children}
       </tr>
     );
@@ -285,7 +285,7 @@ export const markdownComponents: Components = {
 
   td({ node, children, ...props }) {
     return (
-      <td className="px-4 py-3 text-neutral-300" {...props}>
+      <td className="px-4 py-3 text-muted-foreground" {...props}>
         {children}
       </td>
     );
