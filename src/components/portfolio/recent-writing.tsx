@@ -4,6 +4,7 @@ import Link from "next/link";
 import { NavigationButton } from "@/components/ui/navigation-button";
 import { RenderIcon } from "../Icons";
 import { Button } from "../ui/button";
+import { SectionHeader } from "./experience";
 
 interface RecentWritingProps {
   writings: Writing[];
@@ -17,9 +18,7 @@ export function RecentWriting({
   return (
     <section className="">
       <div className="spacing-secondary">
-        <Typography variant="heading1" className="animate-fade-in-up">
-          <span className="text-muted-foreground">{">"}</span> {title}
-        </Typography>
+        {title && <SectionHeader title={title} />}
 
         <div className="mt-10 space-y-8">
           {writings.map((writing, index) => (
@@ -29,7 +28,12 @@ export function RecentWriting({
               style={{ animationDelay: `${index * 0.06}s` }}
             >
               <Link href={`/writings/${writing.id}`} key={writing.id}>
-                <Typography variant="heading2">{writing.title}</Typography>
+                <Typography
+                  variant="heading2"
+                  className="font-normal hover:font-medium"
+                >
+                  {writing.title}
+                </Typography>
               </Link>
               <Typography
                 variant="helpText"
@@ -41,16 +45,14 @@ export function RecentWriting({
           ))}
         </div>
 
-        <div className="flex gap-1">
-          <Button
-            variant={"link"}
-            href="/writings"
-            className="p-0 text-muted-foreground"
-          >
-            View all writings
-            <RenderIcon name="next" />
-          </Button>
-        </div>
+        <Button
+          variant={"link"}
+          href="/writings"
+          className="p-0 text-muted-foreground"
+        >
+          View all writings
+          <RenderIcon name="next" />
+        </Button>
       </div>
     </section>
   );

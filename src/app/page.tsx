@@ -17,7 +17,6 @@ export default function Home() {
     socials,
     projects,
     experience,
-    testimonials,
     writings,
   } = portfolioData;
 

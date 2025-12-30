@@ -1,26 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import { RenderIcon } from "../Icons";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Typography } from "../ui/typography";
+import Link from "next/link";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { title, description, imageUrl, techStack, links } = project;
+  const { id, title, description, imageUrl, techStack, links, metadata } =
+    project;
 
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <article className="h-full flex flex-col rounded-md border border-border bg-card overflow-hidden card-shadow">
       {/* Image or placeholder */}
-      <div className="relative aspect-4/2 overflow-hidden">
+      <div className="relative aspect-9/6 overflow-hidden">
         {imageUrl ? (
           <div
             onMouseEnter={() => setIsHovered(true)}
@@ -32,9 +33,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               fill
               className={cn(
                 "object-cover transition-all brightness-100",
-                isHovered && "blur-xs brightness-50"
+                isHovered && "blur-md brightness-50"
               )}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             {isHovered && (
               // Overlay
@@ -44,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     {links.map((link) => (
                       <RenderIcon
                         key={link.label}
-                        name="next"
+                        name={link.label}
                         url={link.url}
                         className="cursor-pointer text-4xl text-foreground"
                       />
@@ -66,7 +67,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Content */}
       <div className="p-5 flex-1 flex flex-col bg-card-bg justify-between gap-8">
         <div className="flex flex-col gap-4">
-          <Typography variant="heading2">{title}</Typography>
+          <Link href={`/projects/${id}`}>
+            <Typography variant="heading2" className="hover:underline">
+              {title}
+            </Typography>
+            {metadata?.status && (
+              <Typography
+                variant="helpText"
+                className="border border-border rounded-md px-2 py-1 w-fit max-w-fit mt-2 text-green-500 bg-green-500/10"
+              >
+                {metadata?.status.toLowerCase()}
+              </Typography>
+            )}
+          </Link>
           <Typography variant="body" className="line-clamp-3">
             {description}
           </Typography>

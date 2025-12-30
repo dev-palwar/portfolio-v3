@@ -15,6 +15,10 @@ import {
   SiWebpack,
   SiMongodb,
   SiFramer,
+  SiPrisma,
+  SiPython,
+  SiHtml5,
+  SiCss3,
 } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GoProjectSymlink } from "react-icons/go";
@@ -51,6 +55,10 @@ const iconColorMap: Record<string, string> = {
   vite: "text-vite",
   live: "text-foreground",
   next: "text-muted-foreground",
+  prisma: "text-prisma",
+  python: "text-[#3776AB]",
+  html: "text-html",
+  css: "text-css",
 };
 
 // Maps icon names to their React components
@@ -82,6 +90,10 @@ const iconComponentMap: Record<
   vite: SiVite,
   live: GoProjectSymlink,
   next: GoArrowRight,
+  prisma: SiPrisma,
+  python: SiPython,
+  html: SiHtml5,
+  css: SiCss3,
 };
 
 interface RenderIconProps {

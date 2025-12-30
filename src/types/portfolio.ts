@@ -16,6 +16,37 @@ export interface ProjectLink {
   url: string;
 }
 
+/** Represents project metadata like timeline, role, team, and status. */
+export interface ProjectMetadata {
+  timeline?: string;
+  role?: string;
+  team?: string;
+  status?: string;
+}
+
+/** Represents detailed project information sections. */
+export interface ProjectDetails {
+  overview?: string;
+  whyBuilt?: string[];
+  features?: string[];
+  techStack?: {
+    frontend?: string[];
+    backend?: string[];
+    database?: string[];
+    tools?: string[];
+    other?: string[];
+  };
+  impact?: {
+    users?: string;
+    views?: string;
+    metrics?: string;
+    achievements?: string[];
+  };
+  futurePlans?: string[];
+  challenges?: string[];
+  solutions?: string[];
+}
+
 /** Represents a portfolio project. */
 export interface Project {
   id: string;
@@ -25,7 +56,8 @@ export interface Project {
   techStack: string[];
   links?: ProjectLink[];
   featured?: boolean;
-  details: {
+  metadata?: ProjectMetadata;
+  details?: ProjectDetails | {
     features: string[];
   }[];
 }

@@ -10,3 +10,4 @@ export { ProjectGrid } from "./project-grid";
 export { Experience } from "./experience";
 export { Testimonials } from "./testimonials";
 export { RecentWriting } from "./recent-writing";
+export { ProjectDetailsComponent } from "./project-details";

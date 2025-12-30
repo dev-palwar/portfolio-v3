@@ -48,31 +48,36 @@ export default function Projects() {
       </div>
 
       <div className="section-spacing">
-        <div className="spacing-secondary flex items-baseline gap-2">
-          <Typography variant="heading2">
-            {isFiltered ? "Filtered projects" : "All projects"}
-          </Typography>
-          <Typography variant="helpText">
-            ({filteredProjects.length})
-          </Typography>
-        </div>
-        <div className="spacing-secondary flex flex-wrap gap-3">
-          {uniqueTechStack.map((tech) => (
-            <div
-              key={tech}
-              onClick={() => handleTechClick(tech)}
-              className="cursor-pointer"
-            >
-              <RenderIcon name={tech} className="text-2xl" />
-            </div>
-          ))}
-          {isFiltered && (
-            <div onClick={handleClearFilter} className="cursor-pointer ml-auto">
-              <Typography variant="helpText" className="underline">
-                Clear filter
-              </Typography>
-            </div>
-          )}
+        <div className="sticky top-0 z-10 backdrop-blur-xl">
+          <div className="spacing-secondary flex items-baseline gap-2">
+            <Typography variant="heading2">
+              {isFiltered ? "Filtered projects" : "All projects"}
+            </Typography>
+            <Typography variant="helpText">
+              ({filteredProjects.length})
+            </Typography>
+          </div>
+          <div className="spacing-secondary flex flex-wrap gap-3">
+            {uniqueTechStack.map((tech) => (
+              <div
+                key={tech}
+                onClick={() => handleTechClick(tech)}
+                className="cursor-pointer"
+              >
+                <RenderIcon name={tech} className="text-2xl" />
+              </div>
+            ))}
+            {isFiltered && (
+              <div
+                onClick={handleClearFilter}
+                className="cursor-pointer ml-auto"
+              >
+                <Typography variant="helpText" className="underline">
+                  Clear filter
+                </Typography>
+              </div>
+            )}
+          </div>
         </div>
         <div className="project grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {filteredProjects.map((project) => (

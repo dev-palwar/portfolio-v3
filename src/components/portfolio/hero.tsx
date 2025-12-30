@@ -5,10 +5,6 @@ interface HeroProps {
   bannerText?: string;
 }
 
-/**
- * Hero section component.
- * Displays full-width banner with optional text overlay.
- */
 export function Hero({ bannerText }: HeroProps) {
   return (
     <section className="">

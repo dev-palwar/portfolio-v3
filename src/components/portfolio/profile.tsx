@@ -1,4 +1,8 @@
-import { Github, Linkedin, Twitter, Mail, Globe } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { LiaLinkedinIn } from "react-icons/lia";
+import { BsTwitter } from "react-icons/bs";
+import { IoMdMail } from "react-icons/io";
+import { CiGlobe } from "react-icons/ci";
 import type { SocialLink } from "@/types/portfolio";
 import { Button } from "../ui/button";
 import { Typography } from "../ui/typography";
@@ -11,11 +15,11 @@ interface ProfileProps {
 }
 
 const socialIcons = {
-  github: Github,
-  linkedin: Linkedin,
-  twitter: Twitter,
-  email: Mail,
-  website: Globe,
+  github: FaGithub,
+  linkedin: LiaLinkedinIn,
+  twitter: BsTwitter,
+  email: IoMdMail,
+  website: CiGlobe,
 } as const;
 
 export function Profile({ name, tagline, bio, socials }: ProfileProps) {
