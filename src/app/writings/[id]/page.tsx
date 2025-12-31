@@ -1,29 +1,26 @@
 import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
-import { portfolioData } from "@/data/portfolio-data";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { markdownComponents } from "@/components/markdown/markdown-components";
 import path from "path";
 import fs from "fs/promises";
 import { calculateReadingTime } from "@/lib/utils";
+import { writings } from "@/data/writings";
 
 export default async function WritingPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { writings } = portfolioData;
   const { id } = await params;
 
-  const writing = writings.find((w) => w.id === id);
+  const writing = writings?.find((w) => w.id === id);
 
   if (!writing) {
     return (
       <main className="min-h-screen section-spacing">
-        <div className="max-w-3xl mx-auto px-4">
-          <Typography variant="heading1">Writing not found</Typography>
-        </div>
+        <Typography variant="heading1">Writing not found</Typography>
       </main>
     );
   }
@@ -32,16 +29,16 @@ export default async function WritingPage({
   const readingTime = calculateReadingTime(markdown);
 
   return (
-    <main className="min-h-screen pb-20">
+    <main className="min-h-screen pb-12 sm:pb-20">
       {/* Header with navigation */}
-      <div className="sticky top-0 z-10 backdrop-blur-xl ">
-        <div className="max-w-3xl mx-auto px-4 py-4">
+      <div className="sticky top-0 z-10 backdrop-blur-xl">
+        <div className="py-3 sm:py-4">
           <NavigationButton label="Back to writings" />
         </div>
       </div>
 
       {/* Article container */}
-      <article className="max-w-3xl mx-auto px-4">
+      <article>
         {/* Markdown content */}
         <div className="prose-container">
           <ReactMarkdown

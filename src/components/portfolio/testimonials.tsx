@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Testimonial } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
-import { RenderQuote } from "../render-quote";
+import { RenderQuote } from "@/components/reusables/RenderQuote";
 
 interface TestimonialsProps {
   testimonials: Testimonial[];

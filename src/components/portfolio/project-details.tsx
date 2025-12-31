@@ -1,7 +1,6 @@
-import { RenderIcon } from "@/components/Icons";
+import { RenderIcon } from "@/components/reusables/RenderIcon";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
-import { ProjectMetadata } from "@/components/project-metadata";
 import { ProjectDetails, type Project } from "@/types/portfolio";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,14 +24,14 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
   return (
     <>
       {/* Header Section */}
-      <div className="section-spacing border-b border-border pb-12">
-        <div className="sticky top-0 z-10 backdrop-blur-xl ">
-          <div className="mx-auto py-4">
+      <div className="border-b border-border pb-8 sm:pb-12">
+        <div className="sticky top-0 z-10 backdrop-blur-xl">
+          <div className="py-3 sm:py-4">
             <NavigationButton label="Back to projects" />
           </div>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="spacing-secondary">
           {project.imageUrl && (
             <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-border">
               <Image
@@ -41,36 +40,38 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
               />
             </div>
           )}
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-8">
-              <h1 className="font-display text-4xl md:text-5xl font-bold">
+          <div className="spacing-secondary">
+            <div className="spacing-secondary">
+              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                 {project.title}
               </h1>
+
               {/* Tech Stack Icons */}
-              <div className="flex flex-wrap gap-3 items-center">
+              <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                 {project.techStack.map((tech) => (
                   <RenderIcon
                     key={tech}
                     name={tech}
-                    className="text-xl"
-                    // withColor={true}
+                    className="text-lg sm:text-xl"
                   />
                 ))}
               </div>
+
               <Typography
                 variant="body"
-                className="text-lg"
+                className="text-base sm:text-lg"
                 dangerouslySetInnerHTML={{ __html: project.description }}
               />
             </div>
 
             {/* Action Links */}
             {project.links && project.links.length > 0 && (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {project.links.map((link) => (
                   <Link
                     key={link.label}
@@ -81,7 +82,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="rounded-full"
+                      className="rounded-full text-sm sm:text-base"
                     >
                       {link.label}
                       <RenderIcon name={link.label} className="w-4 h-4" />
@@ -96,30 +97,35 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
 
       {/* Detailed Content */}
       {detailedDetails && (
-        <div className="section-spacing space-y-12">
+        <div className="section-spacing space-y-8 sm:space-y-12">
           {/* Overview */}
           {detailedDetails.overview && (
             <section>
-              <Typography variant="heading1" className="mb-4">
+              <Typography variant="heading1" className="mb-3 sm:mb-4">
                 Overview
               </Typography>
-              <Typography variant="body" className="prose-container">
-                {detailedDetails.overview}
-              </Typography>
+              <Typography
+                variant="body"
+                className="prose-container"
+                dangerouslySetInnerHTML={{ __html: detailedDetails.overview }}
+              />
             </section>
           )}
 
           {/* Why I Built This */}
           {detailedDetails.whyBuilt && detailedDetails.whyBuilt.length > 0 && (
             <section>
-              <Typography variant="heading1" className="mb-4">
+              <Typography variant="heading1" className="mb-3 sm:mb-4">
                 Why I Built This
               </Typography>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {detailedDetails.whyBuilt.map((reason, index) => (
-                  <li key={index} className="flex gap-3">
+                  <li key={index} className="flex gap-2 sm:gap-3">
                     <span className="text-muted-foreground mt-1">•</span>
-                    <Typography variant="body">{reason}</Typography>
+                    <Typography
+                      variant="body"
+                      dangerouslySetInnerHTML={{ __html: reason }}
+                    />
                   </li>
                 ))}
               </ul>
@@ -129,12 +135,12 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
           {/* Features */}
           {detailedDetails.features && detailedDetails.features.length > 0 && (
             <section>
-              <Typography variant="heading1" className="mb-4">
+              <Typography variant="heading1" className="mb-3 sm:mb-4">
                 Features
               </Typography>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {detailedDetails.features.map((feature, index) => (
-                  <li key={index} className="flex gap-3">
+                  <li key={index} className="flex gap-2 sm:gap-3">
                     <span className="text-muted-foreground mt-1">•</span>
                     <Typography
                       variant="body"
@@ -149,10 +155,10 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
           {/* Tech Stack Details */}
           {detailedDetails.techStack && (
             <section>
-              <Typography variant="heading1" className="mb-4">
+              <Typography variant="heading1" className="mb-3 sm:mb-4">
                 Tech Stack
               </Typography>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {detailedDetails.techStack.frontend &&
                   detailedDetails.techStack.frontend.length > 0 && (
                     <div>
@@ -163,7 +169,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                         {detailedDetails.techStack.frontend.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs sm:text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -181,7 +187,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                         {detailedDetails.techStack.backend.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs sm:text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -199,7 +205,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                         {detailedDetails.techStack.database.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs sm:text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -217,7 +223,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                         {detailedDetails.techStack.tools.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs sm:text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -235,7 +241,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                         {detailedDetails.techStack.other.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs sm:text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -251,10 +257,10 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
           {detailedDetails.challenges &&
             detailedDetails.challenges.length > 0 && (
               <section>
-                <Typography variant="heading1" className="mb-4">
+                <Typography variant="heading1" className="mb-3 sm:mb-4">
                   Challenges & Solutions
                 </Typography>
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {detailedDetails.challenges.map((challenge, index) => (
                     <div key={index} className="space-y-2">
                       <Typography
@@ -265,12 +271,13 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                       </Typography>
                       {detailedDetails.solutions &&
                         detailedDetails.solutions[index] && (
-                          <Typography variant="body" className="ml-4">
-                            <span className="text-muted-foreground">
-                              Solution:{" "}
-                            </span>
-                            {detailedDetails.solutions[index]}
-                          </Typography>
+                          <Typography
+                            variant="body"
+                            className="ml-3 sm:ml-4"
+                            dangerouslySetInnerHTML={{
+                              __html: detailedDetails.solutions[index],
+                            }}
+                          />
                         )}
                     </div>
                   ))}
@@ -281,22 +288,25 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
           {/* Impact */}
           {detailedDetails.impact && (
             <section>
-              <Typography variant="heading1" className="mb-4">
+              <Typography variant="heading1" className="mb-3 sm:mb-4">
                 Impact & Achievements
               </Typography>
               <div className="space-y-4">
                 {detailedDetails.impact.achievements &&
                   detailedDetails.impact.achievements.length > 0 && (
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {detailedDetails.impact.achievements.map(
                         (achievement, index) => (
-                          <li key={index} className="flex gap-3">
+                          <li key={index} className="flex gap-2 sm:gap-3">
                             <span className="text-muted-foreground mt-1">
                               •
                             </span>
-                            <Typography variant="body">
-                              {achievement}
-                            </Typography>
+                            <Typography
+                              variant="body"
+                              dangerouslySetInnerHTML={{
+                                __html: achievement,
+                              }}
+                            />
                           </li>
                         )
                       )}
@@ -305,7 +315,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                 {(detailedDetails.impact.users ||
                   detailedDetails.impact.views ||
                   detailedDetails.impact.metrics) && (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-lg bg-card border border-border">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-border">
                     {detailedDetails.impact.users && (
                       <div>
                         <Typography
@@ -355,14 +365,17 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
           {detailedDetails.futurePlans &&
             detailedDetails.futurePlans.length > 0 && (
               <section>
-                <Typography variant="heading1" className="mb-4">
+                <Typography variant="heading1" className="mb-3 sm:mb-4">
                   Future Plans
                 </Typography>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {detailedDetails.futurePlans.map((plan, index) => (
-                    <li key={index} className="flex gap-3">
+                    <li key={index} className="flex gap-2 sm:gap-3">
                       <span className="text-muted-foreground mt-1">•</span>
-                      <Typography variant="body">{plan}</Typography>
+                      <Typography
+                        variant="body"
+                        dangerouslySetInnerHTML={{ __html: plan }}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -376,18 +389,21 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
         Array.isArray(project.details) &&
         project.details.length > 0 && (
           <div className="section-spacing">
-            <Typography variant="heading1" className="mb-4">
+            <Typography variant="heading1" className="mb-3 sm:mb-4">
               Features
             </Typography>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {project.details.map((detail, detailIndex) =>
                 detail.features.map((feature, featureIndex) => (
                   <li
                     key={`${detailIndex}-${featureIndex}`}
-                    className="flex gap-3"
+                    className="flex gap-2 sm:gap-3"
                   >
                     <span className="text-muted-foreground mt-1">•</span>
-                    <Typography variant="body">{feature}</Typography>
+                    <Typography
+                      variant="body"
+                      dangerouslySetInnerHTML={{ __html: feature }}
+                    />
                   </li>
                 ))
               )}

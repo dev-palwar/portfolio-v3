@@ -3,11 +3,11 @@
  * Centralizes exports for cleaner imports.
  */
 
-export { Hero } from "./hero";
-export { Profile } from "./profile";
-export { ProjectCard } from "./project-card";
-export { ProjectGrid } from "./project-grid";
-export { Experience } from "./experience";
-export { Testimonials } from "./testimonials";
-export { RecentWriting } from "./recent-writing";
-export { ProjectDetailsComponent } from "./project-details";
+export { Hero } from "@/components/portfolio/hero";
+export { Profile } from "@/components/portfolio/profile";
+export { ProjectCard } from "@/components/reusables/project-card";
+export { ProjectGrid } from "@/components/portfolio/project-grid";
+export { Experience } from "@/components/portfolio/experience";
+export { Testimonials } from "@/components/portfolio/testimonials";
+export { RecentWriting } from "@/components/portfolio/recent-writing";
+export { ProjectDetailsComponent } from "@/components/portfolio/project-details";

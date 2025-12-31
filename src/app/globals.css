@@ -67,13 +67,35 @@
     --color-css: #1572B6;
     --color-html: #E34F26;
 
-    /* Spacing */
-    --spacing-section: 4rem;
-    --spacing-section-lg: 8rem;
+    /* Responsive spacing - mobile first */
+    --spacing-section: 2rem;
+    --spacing-section-lg: 4rem;
+    --spacing-container-x: 2rem;
+    --spacing-content-gap: 1.5rem;
 
     /* Shadows */
     --shadow-card: 0 1px 3px oklch(0 0 0 / 5%), 0 1px 2px oklch(0 0 0 / 3%);
-    --shadow-card-hover: 0 10px 40px oklch(0 0 0 / 8%), 0 2px 8px oklch(0 0 0 / 4%);
+    --shadow-card-hover: 0 10px 40px oklch(0 0 0 / 8%), 0 2px 8px oklch(0 0 0 / 20%);
+}
+
+/* Responsive spacing overrides - tablet */
+@media (min-width: 640px) {
+    :root {
+        --spacing-section: 3rem;
+        --spacing-section-lg: 6rem;
+        --spacing-container-x: 2rem;
+        --spacing-content-gap: 2rem;
+    }
+}
+
+/* Responsive spacing overrides - desktop */
+@media (min-width: 1024px) {
+    :root {
+        --spacing-section: 4rem;
+        --spacing-section-lg: 8rem;
+        --spacing-container-x: 2rem;
+        --spacing-content-gap: 2rem;
+    }
 }
 
 .dark {
@@ -81,7 +103,7 @@
     --color-foreground: oklch(0.985 0 0);
     --color-card: oklch(0.16 0 0);
     --color-card-foreground: oklch(0.985 0 0);
-    --color-card-bg: oklch(0.1 0 0);
+    --color-card-bg: #171717;
     --color-popover: oklch(0.16 0 0);
     --color-popover-foreground: oklch(0.985 0 0);
     --color-primary: oklch(0.922 0 0);
@@ -108,7 +130,7 @@
 }
 
 body {
-    @apply w-[50%] mx-auto bg-background scroll-smooth;
+    @apply bg-background scroll-smooth;
     font-family: var(--font-geist);
 }
 
@@ -117,6 +139,37 @@ button {
 }
 
 @layer utilities {
+    .container-main {
+        @apply w-full mx-auto;
+        max-width: 100%;
+        padding-left: var(--spacing-container-x);
+        padding-right: var(--spacing-container-x);
+    }
+
+    @media (min-width: 640px) {
+        .container-main {
+            max-width: 90%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container-main {
+            max-width: 80%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container-main {
+            max-width: 900px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .container-main {
+            max-width: 900px;
+        }
+    }
+
     .font-display {
         font-family: var(--font-display);
     }
@@ -125,8 +178,12 @@ button {
         padding-top: var(--spacing-section);
     }
 
+    .section-spacing-bottom {
+        padding-bottom: var(--spacing-section);
+    }
+
     .spacing-secondary {
-        @apply space-y-8;
+        @apply space-y-6 sm:space-y-8;
     }
 
     .section-spacing-lg {
@@ -194,7 +251,7 @@ button {
 }
 
 .prose-container {
-    @apply text-[1.0625rem] leading-[1.8] text-muted-foreground;
+    @apply text-base sm:text-[1.0625rem] leading-[1.8] text-muted-foreground;
     counter-reset: list-counter;
 }
 

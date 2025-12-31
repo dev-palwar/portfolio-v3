@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "../providers/theme-provider";
-import { Header } from "@/components/header";
-import Footer from "@/components/footer";
+import { Header } from "@/components/reusables/Header";
+import Footer from "@/components/reusables/Footer";
 
 export const metadata: Metadata = {
   title: "Dev's Portfolio",
@@ -24,9 +24,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <div className="container-main">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

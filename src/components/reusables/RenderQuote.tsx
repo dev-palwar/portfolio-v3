@@ -1,10 +1,10 @@
-import { Typography } from "./ui/typography";
+import { Typography } from "@/components/ui/typography";
 
-export const RenderQuote = ({ quote }: { quote?: string }) => {
+export function RenderQuote({ quote }: { quote?: string }) {
   return (
     <>
       {" "}
       {quote && <Typography variant="body">&ldquo; {quote} &rdquo;</Typography>}
     </>
   );
-};
+}

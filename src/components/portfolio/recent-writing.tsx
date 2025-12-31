@@ -1,8 +1,7 @@
 import type { Writing } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
 import Link from "next/link";
-import { NavigationButton } from "@/components/ui/navigation-button";
-import { RenderIcon } from "../Icons";
+import { RenderIcon } from "../reusables/RenderIcon";
 import { Button } from "../ui/button";
 import { SectionHeader } from "./experience";
 
@@ -16,15 +15,15 @@ export function RecentWriting({
   title = "Recent writings",
 }: RecentWritingProps) {
   return (
-    <section className="">
+    <section>
       <div className="spacing-secondary">
         {title && <SectionHeader title={title} />}
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-6 sm:mt-10 space-y-4 sm:space-y-8">
           {writings.map((writing, index) => (
             <div
               key={writing.id}
-              className="flex items-baseline justify-between gap-4 animate-fade-in-up"
+              className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.06}s` }}
             >
               <Link href={`/writings/${writing.id}`} key={writing.id}>
@@ -37,7 +36,7 @@ export function RecentWriting({
               </Link>
               <Typography
                 variant="helpText"
-                className="text-right uppercase tracking-[0.16em]"
+                className="sm:text-right uppercase tracking-[0.16em] shrink-0"
               >
                 {writing.date}
               </Typography>

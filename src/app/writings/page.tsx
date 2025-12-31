@@ -1,18 +1,14 @@
 import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
-import { portfolioData } from "@/data/portfolio-data";
+import { writings } from "@/data/writings";
 import Link from "next/link";
 
 export default function WritingsPage() {
-  const { writings } = portfolioData;
-
   return (
     <main className="min-h-screen section-spacing">
-      <div className="mb-12">
-        <NavigationButton label="Back to home" />
-      </div>
+      <NavigationButton label="Back to home" />
 
-      <div className="flex flex-col gap-4 border-b border-border pb-12">
+      <div className="flex flex-col gap-3 sm:gap-4 border-b border-border pb-8 sm:pb-12">
         <Typography variant="heading1" className="uppercase font-bold">
           Writings.
         </Typography>
@@ -30,11 +26,11 @@ export default function WritingsPage() {
               ({writings.length})
             </span>
           </Typography>
-          <div className="mt-10 space-y-8">
+          <div className="mt-6 sm:mt-10 space-y-6 sm:space-y-8">
             {writings.map((writing, index) => (
               <div
                 key={writing.id}
-                className="flex items-baseline justify-between gap-4 animate-fade-in-up"
+                className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.06}s` }}
               >
                 <Link href={`/writings/${writing.id}`}>
@@ -44,7 +40,7 @@ export default function WritingsPage() {
                 </Link>
                 <Typography
                   variant="helpText"
-                  className="text-right uppercase tracking-[0.16em]"
+                  className="sm:text-right uppercase tracking-[0.16em] shrink-0"
                 >
                   {writing.date}
                 </Typography>

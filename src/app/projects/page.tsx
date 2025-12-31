@@ -1,44 +1,35 @@
 "use client";
-import { RenderIcon } from "@/components/Icons";
+
 import { ProjectCard } from "@/components/portfolio";
 import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
-import { portfolioData } from "@/data/portfolio-data";
 import { Project } from "@/types/portfolio";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { projects as projectsData } from "@/data/projects";
 
 export default function Projects() {
-  const { projects } = portfolioData;
+  const [selectedStatus, setSelectedStatus] = useState<string>("");
+  const [filteredProjects, setFilteredProjects] =
+    useState<Project[]>(projectsData);
 
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
-  const [isFiltered, setIsFiltered] = useState<boolean>(false);
-
-  const allTechStack = projects.flatMap((project) => project.techStack);
-  const uniqueTechStack = [...new Set(allTechStack)];
-
-  const handleTechClick = (tech: string): void => {
-    setFilteredProjects(
-      projects.filter((project) => project.techStack.includes(tech))
-    );
-    setIsFiltered(true);
+  const handleStatusClick = (status: string): void => {
+    if (selectedStatus === status) {
+      // Clears filter if clicking same status
+      setSelectedStatus("");
+      setFilteredProjects(projectsData);
+    } else {
+      setSelectedStatus(status);
+      setFilteredProjects(
+        projectsData.filter((project) => project.metadata?.status === status)
+      );
+    }
   };
-
-  const handleClearFilter = (): void => {
-    setFilteredProjects(projects);
-    setIsFiltered(false);
-  };
-
-  useEffect(() => {
-    setFilteredProjects(projects);
-  }, [projects]);
 
   return (
-    <main className="min-h-screen section-spacing">
-      <div className="mb-12">
-        <NavigationButton label="Back to home" />
-      </div>
+    <main className="min-h-screen">
+      <NavigationButton label="Back to home" />
 
-      <div className="flex flex-col gap-4 border-b border-border pb-12">
+      <div className="flex flex-col gap-3 sm:gap-4 border-b border-border pb-8 sm:pb-12">
         <Typography variant="heading1" className="uppercase font-bold">
           Projects.
         </Typography>
@@ -48,38 +39,32 @@ export default function Projects() {
       </div>
 
       <div className="section-spacing">
-        <div className="sticky top-0 z-10 backdrop-blur-xl">
-          <div className="spacing-secondary flex items-baseline gap-2">
-            <Typography variant="heading2">
-              {isFiltered ? "Filtered projects" : "All projects"}
-            </Typography>
+        <div className="sticky top-0 z-10 backdrop-blur-xl py-2 sm:py-0">
+          <div className="spacing-secondary flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+            <Typography variant="heading2">All projects</Typography>
             <Typography variant="helpText">
               ({filteredProjects.length})
             </Typography>
           </div>
-          <div className="spacing-secondary flex flex-wrap gap-3">
-            {uniqueTechStack.map((tech) => (
+
+          <div className="flex flex-wrap gap-1 sm:gap-2 my-3 sm:mb-4">
+            {["Completed", "In Progress", "On Hold"].map((status) => (
               <div
-                key={tech}
-                onClick={() => handleTechClick(tech)}
-                className="cursor-pointer"
+                key={status}
+                onClick={() => handleStatusClick(status)}
+                className={`cursor-pointer border border-border rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground transition-colors ${
+                  selectedStatus === status
+                    ? "bg-primary text-primary-foreground"
+                    : ""
+                }`}
               >
-                <RenderIcon name={tech} className="text-2xl" />
+                <Typography variant="helpText">{status}</Typography>
               </div>
             ))}
-            {isFiltered && (
-              <div
-                onClick={handleClearFilter}
-                className="cursor-pointer ml-auto"
-              >
-                <Typography variant="helpText" className="underline">
-                  Clear filter
-                </Typography>
-              </div>
-            )}
           </div>
         </div>
-        <div className="project grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-start">
           {filteredProjects.map((project) => (
             <div key={project.id} className="animate-fade-in-up h-full">
               <ProjectCard project={project} />

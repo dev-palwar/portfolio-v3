@@ -27,7 +27,7 @@ export function NavigationButton({
         variant="ghost"
         onClick={() => router.back()}
         className={cn(
-          "inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group",
+          "mb-8 sm:mb-12 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group px-0",
           className
         )}
       >
@@ -41,7 +41,7 @@ export function NavigationButton({
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group",
+        "flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group text-sm sm:text-base",
         className
       )}
     >

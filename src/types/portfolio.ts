@@ -1,8 +1,3 @@
-/**
- * Portfolio TypeScript Types
- * Centralizes all portfolio-related interfaces for reuse across components.
- */
-
 /** Represents a social media or contact link. */
 export interface SocialLink {
   platform: "github" | "linkedin" | "twitter" | "email" | "website";
@@ -57,9 +52,11 @@ export interface Project {
   links?: ProjectLink[];
   featured?: boolean;
   metadata?: ProjectMetadata;
-  details?: ProjectDetails | {
-    features: string[];
-  }[];
+  details?:
+    | ProjectDetails
+    | {
+        features: string[];
+      }[];
 }
 
 /** Represents a work experience entry. */
@@ -99,8 +96,8 @@ export interface PortfolioData {
   bio: string;
   bannerText?: string;
   socials: SocialLink[];
-  projects: Project[];
-  experience: Experience[];
-  testimonials: Testimonial[];
-  writings: Writing[];
+  projects?: Project[];
+  experience?: Experience[];
+  testimonials?: Testimonial[];
+  writings?: Writing[];
 }
