@@ -59,7 +59,7 @@ export function Header() {
       {/* Desktop buttons */}
       <div className="hidden sm:flex items-center gap-2">
         <Button asChild>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/devs-resume.pdf" target="_blank" rel="noopener noreferrer">
             <HiDocument className="w-4 h-4" />
             Resume / CV
           </a>

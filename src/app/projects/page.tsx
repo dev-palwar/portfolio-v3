@@ -1,7 +1,6 @@
 "use client";
 
 import { ProjectCard } from "@/components/portfolio";
-import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import { Project } from "@/types/portfolio";
 import { useState } from "react";
@@ -26,9 +25,7 @@ export default function Projects() {
   };
 
   return (
-    <main className="min-h-screen">
-      <NavigationButton label="Back to home" />
-
+    <>
       <div className="flex flex-col gap-3 sm:gap-4 border-b border-border pb-8 sm:pb-12">
         <Typography variant="heading1" className="uppercase font-bold">
           Projects.
@@ -72,6 +69,6 @@ export default function Projects() {
           ))}
         </div>
       </div>
-    </main>
+    </>
   );
 }

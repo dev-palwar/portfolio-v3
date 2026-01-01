@@ -1,4 +1,3 @@
-import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -29,14 +28,7 @@ export default async function WritingPage({
   const readingTime = calculateReadingTime(markdown);
 
   return (
-    <main className="min-h-screen pb-12 sm:pb-20">
-      {/* Header with navigation */}
-      <div className="sticky top-0 z-10 backdrop-blur-xl">
-        <div className="py-3 sm:py-4">
-          <NavigationButton label="Back to writings" />
-        </div>
-      </div>
-
+    <>
       {/* Article container */}
       <article>
         {/* Markdown content */}
@@ -49,7 +41,7 @@ export default async function WritingPage({
           </ReactMarkdown>
         </div>
       </article>
-    </main>
+    </>
   );
 }
 

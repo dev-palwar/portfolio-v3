@@ -25,12 +25,6 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
     <>
       {/* Header Section */}
       <div className="border-b border-border pb-8 sm:pb-12">
-        <div className="sticky top-0 z-10 backdrop-blur-xl">
-          <div className="py-3 sm:py-4">
-            <NavigationButton label="Back to projects" />
-          </div>
-        </div>
-
         <div className="spacing-secondary">
           {project.imageUrl && (
             <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-border">

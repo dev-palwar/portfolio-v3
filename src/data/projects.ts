@@ -3,7 +3,6 @@ import RecodeCover from "@/assets/covers/recode-cover.png";
 import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext-cover.png";
 import AnimeCliCover from "@/assets/covers/anime-cli-cover.png";
 import YtExtensionCover from "@/assets/covers/yt-ext-cover-dark.png";
-import OldPortfolioCover from "@/assets/covers/old-portfolio-cover.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 
 export const projects = [
@@ -119,7 +118,6 @@ export const projects = [
         "MongoDB database with Prisma ORM for reliable data storage",
         "Personal problem tracking that syncs across devices",
         "Filtering and search functionality for tracked problems",
-        "Problem difficulty and topic categorization",
       ],
       techStack: {
         frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
@@ -146,7 +144,7 @@ export const projects = [
     },
   },
   {
-    id: "3",
+    id: "anime-cli",
     title: "Anime CLI",
     description:
       "A simple command-line program for downloading animes. Built while learning web scraping - enter an anime name, and it fetches relevant results, allowing you to download your choice. Easy to use and perfect for anime enthusiasts who prefer the terminal.",

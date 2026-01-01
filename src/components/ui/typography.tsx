@@ -17,14 +17,14 @@ type TypographyProps = React.HTMLAttributes<HTMLElement> & {
 
 const VARIANT_CLASSES: Record<TypographyVariant, string> = {
   heading1:
-    "font-display text-foreground text-2xl md:text-3xl font-medium tracking-tight animate-fade-in-up capitalize",
+    "text-foreground text-2xl md:text-3xl font-medium tracking-tight animate-fade-in-up capitalize",
   heading2:
-    "font-display text-foreground text-base md:text-lg font-medium tracking-tight capitalize",
+    "text-foreground text-base md:text-lg font-medium tracking-tight capitalize",
   heading3:
-    "font-display text-foreground text-sm md:text-sm font-medium tracking-tight capitalize",
+    "text-foreground text-sm md:text-sm font-medium tracking-tight capitalize",
   body: "text-neutral-500 md:text-lg whitespace-pre-wrap animate-fade-in-up animate-stagger-1",
-  bodySm: "text-sm text-neutral-500 font-medium",
-  listItem: "text-base text-neutral-500 font-medium",
+  bodySm: "text-sm text-neutral-500",
+  listItem: "text-base text-neutral-500",
   helpText: "text-xs text-neutral-500 font-medium",
 };
 
@@ -35,5 +35,7 @@ export function Typography({
   ...props
 }: TypographyProps) {
   const classes = VARIANT_CLASSES[variant] || VARIANT_CLASSES["body"];
-  return <Tag className={cn(classes, className)} {...props} />;
+  return (
+    <Tag className={cn(classes + " leading-relaxed", className)} {...props} />
+  );
 }

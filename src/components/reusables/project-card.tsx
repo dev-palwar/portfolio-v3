@@ -83,21 +83,37 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <Typography
             variant="body"
             className="line-clamp-3 text-sm sm:text-base"
-          >
-            {description}
-          </Typography>
+            dangerouslySetInnerHTML={{
+              __html: description.replace(/\n/g, "<br />"),
+            }}
+          />
         </div>
 
-        {/* techStack */}
-        <div className="flex flex-wrap gap-2 sm:gap-3">
-          {techStack.map((tag) => (
-            <RenderIcon
-              key={tag}
-              name={tag}
-              className="text-lg sm:text-xl"
-              withColor={true}
-            />
-          ))}
+        <div className="flex justify-between items-center">
+          {/* techStack */}
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            {techStack.map((tag) => (
+              <RenderIcon
+                key={tag}
+                name={tag}
+                className="text-lg sm:text-xl"
+                withColor={true}
+              />
+            ))}
+          </div>
+
+          <Link
+            href={`/projects/${id}`}
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 flex items-center gap-1 hover:underline"
+          >
+            <Typography
+              variant="bodySm"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:underline"
+            >
+              View details
+            </Typography>
+            <RenderIcon name="next" />
+          </Link>
         </div>
       </div>
     </article>

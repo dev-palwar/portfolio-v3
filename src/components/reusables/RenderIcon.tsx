@@ -19,6 +19,7 @@ import {
   SiPython,
   SiHtml5,
   SiCss3,
+  SiSocketdotio,
 } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GoProjectSymlink } from "react-icons/go";
@@ -59,6 +60,7 @@ const iconColorMap: Record<string, string> = {
   python: "text-[#3776AB]",
   html: "text-html",
   css: "text-css",
+  websocket: "text-websocket",
 };
 
 // Maps icon names to their React components
@@ -94,6 +96,7 @@ const iconComponentMap: Record<
   python: SiPython,
   html: SiHtml5,
   css: SiCss3,
+  websocket: SiSocketdotio,
 };
 
 interface RenderIconProps {

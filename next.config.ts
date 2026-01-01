@@ -4,7 +4,12 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     // Allows loading images from i.ibb.co for external portfolio images
-    domains: ["i.ibb.co", "nooblinux.com", "images.pexels.com"],
+    domains: [
+      "i.ibb.co",
+      "nooblinux.com",
+      "images.pexels.com",
+      "via.placeholder.com",
+    ],
   },
 };
 

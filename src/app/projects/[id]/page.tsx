@@ -14,9 +14,5 @@ export default async function ProjectPage({
     notFound();
   }
 
-  return (
-    <main className="min-h-screen section-spacing pb-12 sm:pb-20">
-      <ProjectDetailsComponent project={project} />
-    </main>
-  );
+  return <ProjectDetailsComponent project={project} />;
 }

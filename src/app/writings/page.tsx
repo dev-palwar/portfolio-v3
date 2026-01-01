@@ -1,13 +1,10 @@
-import { NavigationButton } from "@/components/ui/navigation-button";
 import { Typography } from "@/components/ui/typography";
 import { writings } from "@/data/writings";
 import Link from "next/link";
 
 export default function WritingsPage() {
   return (
-    <main className="min-h-screen section-spacing">
-      <NavigationButton label="Back to home" />
-
+    <>
       <div className="flex flex-col gap-3 sm:gap-4 border-b border-border pb-8 sm:pb-12">
         <Typography variant="heading1" className="uppercase font-bold">
           Writings.
@@ -49,6 +46,6 @@ export default function WritingsPage() {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }

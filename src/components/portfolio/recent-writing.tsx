@@ -27,10 +27,7 @@ export function RecentWriting({
               style={{ animationDelay: `${index * 0.06}s` }}
             >
               <Link href={`/writings/${writing.id}`} key={writing.id}>
-                <Typography
-                  variant="heading2"
-                  className="font-normal hover:font-medium"
-                >
+                <Typography variant="heading2" className="hover:underline">
                   {writing.title}
                 </Typography>
               </Link>
@@ -44,14 +41,13 @@ export function RecentWriting({
           ))}
         </div>
 
-        <Button
-          variant={"link"}
+        <Link
           href="/writings"
-          className="p-0 text-muted-foreground"
+          className="text-muted-foreground hover:text-foreground transition-colors duration-200 flex items-center gap-1 hover:underline"
         >
           View all writings
           <RenderIcon name="next" />
-        </Button>
+        </Link>
       </div>
     </section>
   );

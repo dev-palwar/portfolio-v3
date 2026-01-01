@@ -2,6 +2,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+::selection {
+    background-color: white;
+    color: #000;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -66,6 +71,7 @@
     --color-vite: #646CFF;
     --color-css: #1572B6;
     --color-html: #E34F26;
+    --color-websocket: #ffffff;
 
     /* Responsive spacing - mobile first */
     --spacing-section: 2rem;
@@ -99,11 +105,11 @@
 }
 
 .dark {
-    --color-background: oklch(0.12 0 0);
+    --color-background: #0a0a0a;
     --color-foreground: oklch(0.985 0 0);
     --color-card: oklch(0.16 0 0);
     --color-card-foreground: oklch(0.985 0 0);
-    --color-card-bg: #171717;
+    --color-card-bg: #121212;
     --color-popover: oklch(0.16 0 0);
     --color-popover-foreground: oklch(0.985 0 0);
     --color-primary: oklch(0.922 0 0);
