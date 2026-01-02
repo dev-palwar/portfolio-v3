@@ -5,6 +5,8 @@ import { IoMdMail } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
 import type { SocialLink } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
+import { SiLeetcode } from "react-icons/si";
+import { RenderIcon } from "../reusables/RenderIcon";
 
 interface ProfileProps {
   name: string;
@@ -12,14 +14,6 @@ interface ProfileProps {
   bio: string;
   socials: SocialLink[];
 }
-
-const socialIcons = {
-  github: FaGithub,
-  linkedin: LiaLinkedinIn,
-  twitter: BsTwitter,
-  email: IoMdMail,
-  website: CiGlobe,
-} as const;
 
 export function Profile({ name, tagline, bio, socials }: ProfileProps) {
   return (
@@ -37,20 +31,15 @@ export function Profile({ name, tagline, bio, socials }: ProfileProps) {
         </div>
 
         {/* Social links */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-5 sm:gap-5">
           {socials.map((social) => {
-            const Icon = socialIcons[social.platform];
             return (
-              <a
+              <RenderIcon
+                className="text-xl"
                 key={social.platform}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label || social.platform}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                <Icon className="w-5 h-5" />
-              </a>
+                name={social.platform}
+                url={social.url}
+              />
             );
           })}
         </div>

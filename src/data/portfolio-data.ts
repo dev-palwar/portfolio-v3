@@ -23,9 +23,9 @@ export const portfolioData: PortfolioData = {
       label: "Twitter",
     },
     {
-      platform: "email",
-      url: "mailto:devpalwar06@gmail.com",
-      label: "Email",
+      platform: "leetcode",
+      url: "https://leetcode.com/devpalwar",
+      label: "LeetCode",
     },
   ],
 };
