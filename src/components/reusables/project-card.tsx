@@ -47,7 +47,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                         key={link.label}
                         name={link.label}
                         url={link.url}
-                        className="cursor-pointer text-2xl sm:text-4xl text-foreground"
+                        className="cursor-pointer text-2xl sm:text-4xl text-white"
                       />
                     ))}
                   </div>

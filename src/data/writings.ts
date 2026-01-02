@@ -18,4 +18,10 @@ export const writings = [
     date: "16 Mar, 2025",
     contentPath: "src/content/writings/kitty-zsh-guide.md",
   },
+  {
+    id: "ats-pdfs",
+    title: "ATS PDFs",
+    date: "10 Aug, 2025",
+    contentPath: "src/content/writings/ats-pdfs.md",
+  },
 ];
