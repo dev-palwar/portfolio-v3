@@ -14,7 +14,7 @@ export default function Home() {
       <Profile name={name} tagline={tagline} bio={bio} socials={socials} />
       <Experience experiences={experienceData} title="Experiences" />
       <ProjectGrid projects={projectsData} title="Featured Work" />
-      <RecentWriting writings={writingsData} />
+      <RecentWriting writings={writingsData.slice(0, 3)} />
       <hr className="border-border" />
     </main>
   );

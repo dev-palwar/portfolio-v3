@@ -2,7 +2,6 @@ import type { Writing } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
 import Link from "next/link";
 import { RenderIcon } from "../reusables/RenderIcon";
-import { Button } from "../ui/button";
 import { SectionHeader } from "./experience";
 
 interface RecentWritingProps {
