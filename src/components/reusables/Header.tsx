@@ -43,7 +43,7 @@ export function Header() {
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <a
-                href={socials.find((s) => s.platform === "email")?.url}
+                href="mailto:devpalwar06@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
@@ -67,7 +67,7 @@ export function Header() {
 
         <Button asChild variant="outline">
           <a
-            href={socials.find((s) => s.platform === "email")?.url}
+            href="mailto:devpalwar06@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
