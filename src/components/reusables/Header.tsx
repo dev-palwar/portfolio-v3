@@ -85,8 +85,8 @@ export function Header() {
             size="icon"
             className="relative overflow-hidden"
           >
-            <BsSunFill className="absolute inset-0 h-[1.2rem] w-[1.2rem] m-auto scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90 dark:opacity-0" />
-            <BsMoonFill className="absolute inset-0 h-[1.2rem] w-[1.2rem] m-auto scale-0 rotate-90 opacity-0 transition-all dark:scale-100 dark:rotate-0 dark:opacity-100" />
+            <BsSunFill className="absolute inset-0 h-[1.2rem] w-[1.2rem] m-auto scale-30 rotate-0 transition-all dark:scale-0 dark:-rotate-90 dark:opacity-0" />
+            <BsMoonFill className="absolute inset-0 h-[1.2rem] w-[1.2rem] m-auto scale-0 rotate-90 opacity-0 transition-all dark:scale-30 dark:rotate-0 dark:opacity-30" />
             <span className="sr-only">Toggle theme</span>
           </Button>
         </DropdownMenuTrigger>

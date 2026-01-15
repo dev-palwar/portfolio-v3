@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "Dev's Portfolio",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/me.jpg" type="image/jpg" />
       <body className="antialiased">
+        <NextTopLoader />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
