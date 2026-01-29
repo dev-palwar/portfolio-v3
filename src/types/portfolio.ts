@@ -1,12 +1,13 @@
 /** Represents a social media or contact link. */
 export interface SocialLink {
   platform:
-    | "github"
-    | "linkedin"
-    | "twitter"
-    | "email"
-    | "website"
-    | "leetcode";
+  | "github"
+  | "linkedin"
+  | "twitter"
+  | "email"
+  | "website"
+  | "leetcode"
+  | "medium";
   url: string;
   label?: string;
 }
@@ -59,10 +60,10 @@ export interface Project {
   featured?: boolean;
   metadata?: ProjectMetadata;
   details?:
-    | ProjectDetails
-    | {
-        features: string[];
-      }[];
+  | ProjectDetails
+  | {
+    features: string[];
+  }[];
 }
 
 /** Represents a work experience entry. */

@@ -50,7 +50,7 @@ export function ExpCard({ exp }: ExpCardProps) {
       <ul className="space-y-2 mt-4 sm:mt-8">
         {exp.highlights.map((highlight, idx) => (
           <li key={idx} className="flex items-baseline gap-2 sm:gap-3">
-            <span className="shrink-0">•</span>
+            <span className="shrink-0 text-foreground">•</span>
             <Typography variant="listItem">{highlight}</Typography>
           </li>
         ))}

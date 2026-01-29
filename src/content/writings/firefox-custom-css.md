@@ -1,5 +1,7 @@
 # Unlocking Firefox UI with Custom CSS — A Hacker's Guide
 
+![Firefox CSS Setup](firefox-css.jpg)
+
 ## The Day I Found Out Firefox is a Customizer's Paradise
 
 So here's the deal — I recently stumbled upon a gem: **you can customize the actual Firefox UI with CSS**. I’m not talking about styling websites — I mean the **browser’s own chrome**: the tabs, address bar, buttons, bookmarks bar, everything.

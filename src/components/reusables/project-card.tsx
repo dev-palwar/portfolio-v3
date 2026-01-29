@@ -65,7 +65,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col bg-card-bg justify-between gap-4 sm:gap-8">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-4 sm:gap-8">
         <div className="flex flex-col gap-2 sm:gap-4">
           <Link href={`/projects/${id}`}>
             <Typography variant="heading2" className="hover:underline">
@@ -81,8 +81,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </Link>
           <Typography
-            variant="body"
-            className="line-clamp-3 text-sm sm:text-base"
+            variant="bodySm"
+            className="line-clamp-3 sm:text-base"
             dangerouslySetInnerHTML={{
               __html: description.replace(/\n/g, "<br />"),
             }}

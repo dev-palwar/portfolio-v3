@@ -5,7 +5,7 @@ export const experience = [
   {
     id: "exp-1",
     company: "Finoco AI",
-    role: "Frontend Developer Intern",
+    role: "Frontend Developer",
     period: "June 2025 - Present",
     highlights: [
       "Built and maintained the frontend of an Excel Add-in that integrates AI capabilities directly into Microsoft Excel using Office.js",

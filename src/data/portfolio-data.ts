@@ -23,6 +23,11 @@ export const portfolioData: PortfolioData = {
       label: "Twitter",
     },
     {
+      platform: "medium",
+      url: "https://medium.com/@devpalwar06",
+      label: "Medium",
+    },
+    {
       platform: "leetcode",
       url: "https://leetcode.com/devpalwar",
       label: "LeetCode",

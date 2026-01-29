@@ -22,10 +22,10 @@ const VARIANT_CLASSES: Record<TypographyVariant, string> = {
     "text-foreground text-base md:text-lg font-medium tracking-tight capitalize",
   heading3:
     "text-foreground text-sm md:text-sm font-medium tracking-tight capitalize",
-  body: "text-neutral-500 md:text-lg whitespace-pre-wrap animate-fade-in-up animate-stagger-1",
-  bodySm: "text-sm text-neutral-500",
-  listItem: "text-base text-neutral-500",
-  helpText: "text-xs text-neutral-500 font-medium",
+  body: "text-foreground-2 md:text-lg whitespace-pre-wrap animate-fade-in-up animate-stagger-1",
+  bodySm: "text-sm text-foreground-2",
+  listItem: "text-base text-foreground-2",
+  helpText: "text-xs text-foreground-2 font-medium",
 };
 
 export function Typography({

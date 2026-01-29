@@ -1,5 +1,7 @@
 # kitty + zsh guide
 
+![Kitty + zsh Terminal Setup](kitty-terminal.jpg)
+
 # 🐱Kitty
 
 - install kitty

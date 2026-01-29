@@ -4,7 +4,6 @@ import { Typography } from "@/components/ui/typography";
 import { ProjectDetails, type Project } from "@/types/portfolio";
 import Image from "next/image";
 import Link from "next/link";
-import { NavigationButton } from "../ui/navigation-button";
 
 interface ProjectDetailsProps {
   project: Project;
@@ -100,7 +99,6 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
               </Typography>
               <Typography
                 variant="body"
-                className="prose-container"
                 dangerouslySetInnerHTML={{ __html: detailedDetails.overview }}
               />
             </section>
@@ -309,48 +307,48 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                 {(detailedDetails.impact.users ||
                   detailedDetails.impact.views ||
                   detailedDetails.impact.metrics) && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-border">
-                    {detailedDetails.impact.users && (
-                      <div>
-                        <Typography
-                          variant="bodySm"
-                          className="text-muted-foreground mb-1"
-                        >
-                          Users
-                        </Typography>
-                        <Typography variant="heading2">
-                          {detailedDetails.impact.users}
-                        </Typography>
-                      </div>
-                    )}
-                    {detailedDetails.impact.views && (
-                      <div>
-                        <Typography
-                          variant="bodySm"
-                          className="text-muted-foreground mb-1"
-                        >
-                          Views
-                        </Typography>
-                        <Typography variant="heading2">
-                          {detailedDetails.impact.views}
-                        </Typography>
-                      </div>
-                    )}
-                    {detailedDetails.impact.metrics && (
-                      <div>
-                        <Typography
-                          variant="bodySm"
-                          className="text-muted-foreground mb-1"
-                        >
-                          Metrics
-                        </Typography>
-                        <Typography variant="heading2">
-                          {detailedDetails.impact.metrics}
-                        </Typography>
-                      </div>
-                    )}
-                  </div>
-                )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-border">
+                      {detailedDetails.impact.users && (
+                        <div>
+                          <Typography
+                            variant="bodySm"
+                            className="text-muted-foreground mb-1"
+                          >
+                            Users
+                          </Typography>
+                          <Typography variant="heading2">
+                            {detailedDetails.impact.users}
+                          </Typography>
+                        </div>
+                      )}
+                      {detailedDetails.impact.views && (
+                        <div>
+                          <Typography
+                            variant="bodySm"
+                            className="text-muted-foreground mb-1"
+                          >
+                            Views
+                          </Typography>
+                          <Typography variant="heading2">
+                            {detailedDetails.impact.views}
+                          </Typography>
+                        </div>
+                      )}
+                      {detailedDetails.impact.metrics && (
+                        <div>
+                          <Typography
+                            variant="bodySm"
+                            className="text-muted-foreground mb-1"
+                          >
+                            Metrics
+                          </Typography>
+                          <Typography variant="heading2">
+                            {detailedDetails.impact.metrics}
+                          </Typography>
+                        </div>
+                      )}
+                    </div>
+                  )}
               </div>
             </section>
           )}

@@ -1,4 +1,5 @@
 import type { Components } from "react-markdown";
+import { Typography } from "../ui/typography";
 
 /**
  * Resolves image source paths from Notion exports.
@@ -33,12 +34,12 @@ export const markdownComponents: Components = {
   // Headings with proper hierarchy and spacing
   h1({ node, children, ...props }) {
     return (
-      <h1
+      <Typography
         className="text-3xl md:text-4xl font-bold text-foreground mt-12 mb-6 first:mt-0 tracking-tight"
         {...props}
       >
         {children}
-      </h1>
+      </Typography>
     );
   },
 

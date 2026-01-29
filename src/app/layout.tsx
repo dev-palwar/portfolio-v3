@@ -4,6 +4,12 @@ import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
 import NextTopLoader from "nextjs-toploader";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Dev's Portfolio",
@@ -18,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/me.jpg" type="image/jpg" />
-      <body className="antialiased">
+      <body className={`antialiased ${inter.className}`}>
         <NextTopLoader />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
