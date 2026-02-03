@@ -7,6 +7,9 @@ import type { SocialLink } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
 import { SiLeetcode } from "react-icons/si";
 import { RenderIcon } from "../reusables/RenderIcon";
+import { Button } from "../ui/button";
+import { HiDocument } from "react-icons/hi";
+import { BiSolidMessage } from "react-icons/bi";
 
 interface ProfileProps {
   name: string;
@@ -43,6 +46,26 @@ export function Profile({ name, tagline, bio, socials }: ProfileProps) {
             );
           })}
         </div>
+      </div>
+
+      <div className="hidden sm:flex items-center gap-2">
+        <Button asChild variant="outline" className="border-slate-500">
+          <a href="/devs-resume.pdf" target="_blank" rel="noopener noreferrer">
+            <HiDocument className="w-4 h-4" />
+            Resume / CV
+          </a>
+        </Button>
+
+        <Button asChild variant="outline" className="border-slate-500">
+          <a
+            href="mailto:devpalwar06@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BiSolidMessage className="w-4 h-4" />
+            Get in touch
+          </a>
+        </Button>
       </div>
 
       {/* Bio */}

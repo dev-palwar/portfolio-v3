@@ -13,7 +13,7 @@ import ThemeSwitcher from "./theme-switcher-button";
 export function Header() {
 
   return (
-    <header className="flex justify-between sm:justify-between items-center py-4 gap-2">
+    <header className="flex items-center py-4 gap-2 justify-end">
       {/* Mobile menu */}
       <div className="sm:hidden">
         <DropdownMenu>
@@ -48,27 +48,6 @@ export function Header() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
-
-      {/* Desktop buttons */}
-      <div className="hidden sm:flex items-center gap-2">
-        <Button asChild>
-          <a href="/devs-resume.pdf" target="_blank" rel="noopener noreferrer">
-            <HiDocument className="w-4 h-4" />
-            Resume / CV
-          </a>
-        </Button>
-
-        <Button asChild variant="outline">
-          <a
-            href="mailto:devpalwar06@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BiSolidMessage className="w-4 h-4" />
-            Get in touch
-          </a>
-        </Button>
       </div>
 
       {/* Theme toggle - visible on all sizes */}

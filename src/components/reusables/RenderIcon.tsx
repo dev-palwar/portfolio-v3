@@ -31,6 +31,7 @@ import { cn } from "@/lib/utils";
 import { GoArrowRight } from "react-icons/go";
 import { SiLeetcode } from "react-icons/si";
 import { SiMedium } from "react-icons/si";
+import { SiRedis } from "react-icons/si";
 
 // Maps icon names to color classes for colored display
 const iconColorMap: Record<string, string> = {
@@ -65,6 +66,7 @@ const iconColorMap: Record<string, string> = {
   websocket: "text-websocket",
   leetcode: "text-leetcode",
   medium: "text-medium",
+  redis: "text-redis"
 };
 
 // Maps icon names to their React components
@@ -103,6 +105,7 @@ const iconComponentMap: Record<
   websocket: SiSocketdotio,
   leetcode: SiLeetcode,
   medium: SiMedium,
+  redis: SiRedis
 };
 
 interface RenderIconProps {

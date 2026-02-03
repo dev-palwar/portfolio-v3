@@ -40,6 +40,14 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
 
           <div className="spacing-secondary">
             <div className="spacing-secondary">
+              <Typography
+                variant="helpText"
+                className="border-none rounded-md px-2 py-1 w-fit mt-2
+                  text-yellow-600 bg-yellow-500/10
+                 animate-[softPulse_1.5s_ease-in-out_infinite]"
+              >
+                {project.metadata?.status && project?.metadata?.status.toLowerCase()}
+              </Typography>
               <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                 {project.title}
               </h1>

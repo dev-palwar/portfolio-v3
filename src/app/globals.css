@@ -82,6 +82,7 @@ body {
     --color-css: #1572B6;
     --color-html: #E34F26;
     --color-websocket: #ffffff;
+    --color-redis: #DC382D;
 
     /* Responsive spacing - mobile first */
     --spacing-section: 2rem;
@@ -283,4 +284,15 @@ body {
 
 .prose-container ::selection {
     @apply bg-primary/30;
+}
+@keyframes softPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }

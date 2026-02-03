@@ -4,8 +4,63 @@ import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext-cover.png";
 import AnimeCliCover from "@/assets/covers/anime-cli-cover.png";
 import YtExtensionCover from "@/assets/covers/yt-ext-cover-dark.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
+import FlowynCover from "@/assets/covers/floyn-cover.png";
 
 export const projects = [
+  {
+    id: "flowyn-instagram-automation",
+    title: "Flowyn",
+    description:
+      "A calm, creator-first Instagram automation tool. You keep posting — Flowyn handles scheduling, engagement workflows, and consistency in the background without spammy growth tactics.",
+    imageUrl: FlowynCover.src,
+    techStack: ["typescript", "nextjs", "nodejs", "mongodb", "redis"],
+    links: [
+      { label: "Live", url: "https://flowyn.devpalwar.xyz/" },
+    ],
+    featured: true,
+    metadata: {
+      timeline: "2 months",
+      role: "Full Stack Developer",
+      team: "Solo",
+      status: "Building",
+    },
+    details: {
+      overview:
+        "Flowyn is a modern Instagram automation tool built for creators and indie builders who want consistency without turning their accounts into spam machines. The platform focuses on background automation — post scheduling, engagement flows, and analytics — while keeping the creator in control of content. Designed with a calm, minimal SaaS aesthetic, Flowyn prioritizes trust, simplicity, and sustainable growth over aggressive tactics.",
+
+      whyBuilt: [
+        "Creators want consistency without manually handling repetitive posting and engagement tasks.",
+        "Most Instagram automation tools feel spammy, aggressive, or unsafe for long-term creator growth.",
+        "I wanted to build an automation product that feels calm, trustworthy, and founder-built.",
+      ],
+
+      features: [
+        "Instagram post scheduling with background automation",
+        "Automated engagement workflows (likes, basic interactions) with safe rate limits",
+        "Clean analytics dashboard to track post performance and engagement trends",
+        "Account connection and authentication flow",
+        "Minimal, distraction-free UI focused on creators",
+        "Status-based job tracking (Building, Running, Completed)",
+        "Scalable backend architecture for future automation workflows",
+      ],
+
+      techStack: {
+        frontend: ["React", "Next.Js", "Tailwind", "Typescript"],
+        backend: ["Node.js", "Express.js", "Next.Js", "Redis"],
+        database: ["MongoDB"],
+        tools: ["Vercel", "Background Workers", "BullMq"],
+      },
+
+      challenges: [
+        "Well its full of challenges, especially while moving it to production."
+      ],
+
+      solutions: [
+        "Will update later",
+      ],
+    },
+  },
+
   {
     id: "reelink",
     title: "Reelink",
@@ -14,7 +69,7 @@ export const projects = [
     imageUrl: ReelinkCover.src,
     techStack: ["react", "sass", "expressjs", "mongodb", "nodejs"],
     links: [
-      { label: "Live", url: "https://reelink.vercel.app/" },
+      { label: "Live", url: "https://reelink.devpalwar.xyz/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/Movie-app" },
     ],
     featured: true,
@@ -93,7 +148,7 @@ export const projects = [
       "prisma",
     ],
     links: [
-      { label: "Live", url: "https://recode-leetcode.vercel.app/" },
+      { label: "Live", url: "https://recode.devpalwar.xyz/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/Recode" },
     ],
     featured: true,
@@ -214,7 +269,7 @@ export const projects = [
     imageUrl: YtExtensionCover.src,
     techStack: ["javascript", "html", "css"],
     links: [{ label: "GitHub", url: "https://github.com/dev-palwar/yt-ext" }],
-    featured: true,
+    featured: false,
     metadata: {
       timeline: "1 week",
       role: "Developer",

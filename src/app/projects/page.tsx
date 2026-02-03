@@ -45,7 +45,7 @@ export default function Projects() {
           </div>
 
           <div className="flex flex-wrap gap-1 sm:gap-2 my-3 sm:mb-4">
-            {["Completed", "In Progress", "On Hold"].map((status) => (
+            {["Completed", "Building", "On Hold"].map((status) => (
               <div
                 key={status}
                 onClick={() => handleStatusClick(status)}
