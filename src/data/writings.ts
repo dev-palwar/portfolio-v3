@@ -26,4 +26,11 @@ export const writings = [
     date: "10 Aug, 2025",
     contentPath: "src/content/writings/ats-pdfs.md",
   },
+  {
+    id: "envs",
+    title: "If the browser can see it, it’s not a secret",
+    date: "9 Feb, 2026",
+    coverImageUrl: "apikey.png",
+    contentPath: "src/content/writings/envs.md",
+  },
 ];

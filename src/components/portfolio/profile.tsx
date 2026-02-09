@@ -1,11 +1,5 @@
-import { FaGithub } from "react-icons/fa";
-import { LiaLinkedinIn } from "react-icons/lia";
-import { BsTwitter } from "react-icons/bs";
-import { IoMdMail } from "react-icons/io";
-import { CiGlobe } from "react-icons/ci";
 import type { SocialLink } from "@/types/portfolio";
 import { Typography } from "../ui/typography";
-import { SiLeetcode } from "react-icons/si";
 import { RenderIcon } from "../reusables/RenderIcon";
 import { Button } from "../ui/button";
 import { HiDocument } from "react-icons/hi";
@@ -69,6 +63,7 @@ export function Profile({ name, tagline, bio, socials }: ProfileProps) {
       </div>
 
       {/* Bio */}
+      {/* <p className="text-muted-foreground text-lg leading-relaxed">{bio}</p> */}
       <Typography>{bio}</Typography>
     </section>
   );

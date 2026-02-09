@@ -4,9 +4,9 @@ import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
 import NextTopLoader from "nextjs-toploader";
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/me.jpg" type="image/jpg" />
-      <body className={`antialiased ${inter.className}`}>
+      <body className={`antialiased ${geist.className}`}>
         <NextTopLoader />
         <ThemeProvider
           attribute="class"

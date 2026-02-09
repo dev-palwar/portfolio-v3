@@ -1,5 +1,5 @@
 import Image from "next/image";
-import bannerImage from "@/assets/banner2.png";
+import bannerImage from "@/assets/cover-image.jpeg";
 
 interface HeroProps {
   bannerText?: string;

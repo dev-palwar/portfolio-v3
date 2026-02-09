@@ -4,18 +4,18 @@ import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext-cover.png";
 import AnimeCliCover from "@/assets/covers/anime-cli-cover.png";
 import YtExtensionCover from "@/assets/covers/yt-ext-cover-dark.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
-import FlowynCover from "@/assets/covers/floyn-cover.png";
+import DmBrooCover from "@/assets/covers/DmBroo-cover.png";
 
 export const projects = [
   {
-    id: "flowyn-instagram-automation",
-    title: "Flowyn",
+    id: "dmbroo-instagram-automation",
+    title: "DmBroo",
     description:
-      "A calm, creator-first Instagram automation tool. You keep posting — Flowyn handles scheduling, engagement workflows, and consistency in the background without spammy growth tactics.",
-    imageUrl: FlowynCover.src,
+      "A calm, creator-first Instagram automation tool. You keep posting — DmBroo handles scheduling, engagement workflows, and consistency in the background without spammy growth tactics.",
+    imageUrl: DmBrooCover.src,
     techStack: ["typescript", "nextjs", "nodejs", "mongodb", "redis"],
     links: [
-      { label: "Live", url: "https://flowyn.devpalwar.xyz/" },
+      { label: "Live", url: "https://www.dmbroo.com" },
     ],
     featured: true,
     metadata: {
@@ -26,7 +26,7 @@ export const projects = [
     },
     details: {
       overview:
-        "Flowyn is a modern Instagram automation tool built for creators and indie builders who want consistency without turning their accounts into spam machines. The platform focuses on background automation — post scheduling, engagement flows, and analytics — while keeping the creator in control of content. Designed with a calm, minimal SaaS aesthetic, Flowyn prioritizes trust, simplicity, and sustainable growth over aggressive tactics.",
+        "DmBroo is a modern Instagram automation tool built for creators and indie builders who want consistency without turning their accounts into spam machines. The platform focuses on background automation — post scheduling, engagement flows, and analytics — while keeping the creator in control of content. Designed with a calm, minimal SaaS aesthetic, DmBroo prioritizes trust, simplicity, and sustainable growth over aggressive tactics.",
 
       whyBuilt: [
         "Creators want consistency without manually handling repetitive posting and engagement tasks.",
