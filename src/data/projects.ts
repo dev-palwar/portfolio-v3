@@ -5,6 +5,7 @@ import AnimeCliCover from "@/assets/covers/anime-cli-cover.png";
 import YtExtensionCover from "@/assets/covers/yt-ext-cover-dark.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 import DmBrooCover from "@/assets/covers/DmBroo-cover.png";
+import FramefulCover from "@/assets/covers/frameful-cover.png";
 
 export const projects = [
   {
@@ -14,9 +15,7 @@ export const projects = [
       "A calm, creator-first Instagram automation tool. You keep posting — DmBroo handles scheduling, engagement workflows, and consistency in the background without spammy growth tactics.",
     imageUrl: DmBrooCover.src,
     techStack: ["typescript", "nextjs", "nodejs", "mongodb", "redis"],
-    links: [
-      { label: "Live", url: "https://www.dmbroo.com" },
-    ],
+    links: [{ label: "Live", url: "https://www.dmbroo.com" }],
     featured: true,
     metadata: {
       timeline: "2 months",
@@ -52,15 +51,63 @@ export const projects = [
       },
 
       challenges: [
-        "Well its full of challenges, especially while moving it to production."
+        "Well its full of challenges, especially while moving it to production.",
+      ],
+
+      solutions: ["Will update later"],
+    },
+  },
+  {
+    id: "frameful-browser-recorder",
+    title: "Frameful",
+    description:
+      "A fast, browser-based screen recording tool that lets you record, customize with beautiful backgrounds, and export polished videos with no sign-up required.",
+    imageUrl: FramefulCover.src,
+    techStack: ["react", "typescript", "vite", "tailwindcss"],
+    links: [{ label: "Live", url: "https://frameful.devpalwar.xyz" }],
+    featured: true,
+    metadata: {
+      timeline: "3 weeks",
+      role: "Founder & Lead Developer",
+      team: "Solo",
+      status: "Building",
+    },
+    details: {
+      overview:
+        "Frameful is a modern, privacy-first screen recording tool built entirely in the browser. It allows creators and educators to capture their screen, apply professional-grade backgrounds, and trim recordings without ever uploading data to a server. Designed with a sleek, minimalist aesthetic, Frameful focuses on speed and simplicity—eliminating the need for account creation or heavy software installations.",
+
+      whyBuilt: [
+        "Current screen recording tools are either too basic or overly complex and expensive.",
+        "Creators want a way to make their screen captures look professional with minimal effort.",
+        "Privacy is a major concern; users prefer tools that process sensitive screen data locally.",
+      ],
+
+      features: [
+        "In-browser screen, window, and tab recording in HD",
+        "No time limits or watermarks on recordings",
+        "Customizable backgrounds (gallery or user-uploaded)",
+        "Intuitive timeline trimming to cut unwanted segments",
+        "Fast local rendering and .webm export",
+        "Fully private: all processing happens on your device",
+        "Advanced editing and auto-zoom effects (in development)",
+      ],
+
+      techStack: {
+        frontend: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+        backend: ["Client-side only (Web APIs)"],
+        database: ["None (Local processing)"],
+        tools: ["Radix UI", "Lucide React", "Vercel"],
+      },
+
+      challenges: [
+        "Implementing high-performance video recording and local editing using browser-native APIs while maintaining 60 FPS.",
       ],
 
       solutions: [
-        "Will update later",
+        "Utilized MediaStream and MediaRecorder APIs combined with efficient canvas manipulation for real-time background rendering.",
       ],
     },
   },
-
   {
     id: "reelink",
     title: "Reelink",
@@ -72,7 +119,7 @@ export const projects = [
       { label: "Live", url: "https://reelink.devpalwar.xyz/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/Movie-app" },
     ],
-    featured: true,
+    featured: false,
     metadata: {
       timeline: "2 months",
       role: "Full Stack Developer",
@@ -380,24 +427,6 @@ export const projects = [
       { label: "Live", url: "https://zentry-clone-wine.vercel.app/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/zentry-clone" },
     ],
-  },
-  {
-    id: "text-translator-extension",
-    title: "Text Translator Extension",
-    description:
-      "A browser extension that provides the meaning of selected text on a webpage. Currently, it only works on certain websites due to Content Security Policies (CSP).",
-    imageUrl:
-      "https://i.ibb.co/jZ92qmPs/DALL-E-2025-03-12-17-53-57-A-modern-browser-window-with-a-magnifying-glass-hovering-over-highlighted.webp",
-    techStack: ["javascript", "html", "css"],
-    links: [
-      {
-        label: "GitHub",
-        url: "https://github.com/dev-palwar/translate-extension",
-      },
-    ],
-    metadata: {
-      status: "Completed",
-    },
   },
   //   {
   //     id: "2",
