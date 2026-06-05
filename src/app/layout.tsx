@@ -4,11 +4,11 @@ import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
 import NextTopLoader from "nextjs-toploader";
-import { Geist } from "next/font/google";
+import { Outfit } from "next/font/google";
 
-const geist = Geist({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/me.jpg" type="image/jpg" />
-      <body className={`antialiased ${geist.className}`}>
+      <body className={`antialiased ${outfit.variable}`}>
         <NextTopLoader />
         <ThemeProvider
           attribute="class"

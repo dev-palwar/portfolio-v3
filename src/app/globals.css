@@ -14,14 +14,13 @@ button {
 @custom-variant dark (&:is(.dark *));
 
 body {
-    @apply bg-background scroll-smooth;
-    /* font-family: var(--font-inter); */
+    @apply bg-background text-foreground scroll-smooth;
+    font-family: var(--font-outfit), sans-serif;
 }
 
 @theme {
     /* Typography */
-    /* --font-inter: "Inter", sans-serif; */
-    /* --font-display: var(--font-inter); */
+    --font-display: var(--font-outfit), sans-serif;
 
     /* Border radius */
     --radius: 0.625rem;
@@ -116,35 +115,35 @@ body {
 }
 
 .dark {
-    --color-background: #080c0e;
-    --color-foreground: white;
-    --color-foreground-2: #6d6875;
-    --color-card: oklch(0.16 0 0);
-    --color-card-foreground: oklch(0.985 0 0);
-    --color-card-bg: #121212;
-    --color-popover: oklch(0.16 0 0);
-    --color-popover-foreground: oklch(0.985 0 0);
-    --color-primary: oklch(0.922 0 0);
-    --color-primary-foreground: oklch(0.205 0 0);
-    --color-secondary: oklch(0.22 0 0);
-    --color-secondary-foreground: oklch(0.985 0 0);
-    --color-muted: oklch(0.22 0 0);
-    --color-muted-foreground: oklch(0.708 0 0);
-    --color-accent: oklch(0.22 0 0);
-    --color-accent-foreground: oklch(0.985 0 0);
-    --color-destructive: oklch(0.704 0.191 22.216);
-    --color-border: oklch(1 0 0 / 10%);
-    --color-input: oklch(1 0 0 / 15%);
-    --color-ring: oklch(0.556 0 0);
-    --color-placeholder-bg: oklch(0.22 0 0);
-    --color-placeholder-border: oklch(0.32 0 0);
-    --color-portfolio-accent: oklch(0.78 0.14 25);
-    --color-portfolio-accent-muted: oklch(0.78 0.10 25 / 15%);
-    --color-github: #f5f5f5;
-    --color-nextjs: #ffffff;
-    --color-framer-motion: #ffffff;
-    --shadow-card: 0 1px 3px oklch(0 0 0 / 20%), 0 1px 2px oklch(0 0 0 / 15%);
-    --shadow-card-hover: 0 10px 40px oklch(0 0 0 / 30%), 0 2px 8px oklch(0 0 0 / 20%);
+    --color-background: #1d2021;
+    --color-foreground: #fbf1c7;
+    --color-foreground-2: #bdae93;
+    --color-card: #282828;
+    --color-card-foreground: #fbf1c7;
+    --color-card-bg: #282828;
+    --color-popover: #282828;
+    --color-popover-foreground: #fbf1c7;
+    --color-primary: #fe8019;
+    --color-primary-foreground: #1d2021;
+    --color-secondary: #32302f;
+    --color-secondary-foreground: #fbf1c7;
+    --color-muted: #282828;
+    --color-muted-foreground: #a89984;
+    --color-accent: #32302f;
+    --color-accent-foreground: #fe8019;
+    --color-destructive: #fb4934;
+    --color-border: #3c3836;
+    --color-input: #3c3836;
+    --color-ring: #fe8019;
+    --color-placeholder-bg: #282828;
+    --color-placeholder-border: #3c3836;
+    --color-portfolio-accent: #fe8019;
+    --color-portfolio-accent-muted: rgba(254, 128, 25, 0.15);
+    --color-github: #fbf1c7;
+    --color-nextjs: #fbf1c7;
+    --color-framer-motion: #fbf1c7;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 10px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -285,6 +284,7 @@ body {
 .prose-container ::selection {
     @apply bg-primary/30;
 }
+
 @keyframes softPulse {
 
     0%,
