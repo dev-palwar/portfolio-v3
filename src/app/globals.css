@@ -18,6 +18,32 @@ body {
     font-family: var(--font-outfit), sans-serif;
 }
 
+/* Smooth transitions for theme switches */
+body,
+header,
+footer,
+article,
+button,
+a,
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+input,
+svg {
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 300ms cubic-bezier(0.4, 0, 0.2, 1), 
+                fill 300ms cubic-bezier(0.4, 0, 0.2, 1), 
+                stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @theme {
     /* Typography */
     --font-display: var(--font-outfit), sans-serif;
@@ -33,30 +59,30 @@ body {
     --radius-4xl: calc(var(--radius) + 16px);
 
     /* Base colors - light mode */
-    --color-background: oklch(0.98 0 0);
-    --color-foreground: rgb(36, 36, 36);
-    --color-foreground-2: rgb(36, 36, 36);
-    --color-card: oklch(1 0 0);
-    --color-card-foreground: oklch(0.145 0 0);
-    --color-card-bg: oklch(0.97 0 0);
-    --color-popover: oklch(1 0 0);
-    --color-popover-foreground: oklch(0.145 0 0);
-    --color-primary: oklch(0.205 0 0);
-    --color-primary-foreground: oklch(0.985 0 0);
-    --color-secondary: oklch(0.97 0 0);
-    --color-secondary-foreground: oklch(0.205 0 0);
-    --color-muted: oklch(0.97 0 0);
-    --color-muted-foreground: oklch(0.556 0 0);
-    --color-accent: oklch(0.97 0 0);
-    --color-accent-foreground: oklch(0.205 0 0);
-    --color-destructive: oklch(0.577 0.245 27.325);
-    --color-border: oklch(0.922 0 0);
-    --color-input: oklch(0.922 0 0);
-    --color-ring: oklch(0.708 0 0);
-    --color-placeholder-bg: oklch(0.97 0 0);
-    --color-placeholder-border: oklch(0.88 0 0);
-    --color-portfolio-accent: oklch(0.145 0 0);
-    --color-portfolio-accent-muted: oklch(0.72 0.08 25 / 20%);
+    --color-background: #faf4ed;
+    --color-foreground: #575279;
+    --color-foreground-2: #797593;
+    --color-card: #fffaf3;
+    --color-card-foreground: #575279;
+    --color-card-bg: #fffaf3;
+    --color-popover: #f2e9e1;
+    --color-popover-foreground: #575279;
+    --color-primary: #907aa9;
+    --color-primary-foreground: #faf4ed;
+    --color-secondary: #f2e9e1;
+    --color-secondary-foreground: #575279;
+    --color-muted: #f2e9e1;
+    --color-muted-foreground: #9893a5;
+    --color-accent: #f2e9e1;
+    --color-accent-foreground: #907aa9;
+    --color-destructive: #b4637a;
+    --color-border: #dfdad9;
+    --color-input: #dfdad9;
+    --color-ring: #907aa9;
+    --color-placeholder-bg: #f2e9e1;
+    --color-placeholder-border: #dfdad9;
+    --color-portfolio-accent: #907aa9;
+    --color-portfolio-accent-muted: rgba(144, 122, 169, 0.15);
 
     /* Tech stack brand colors */
     --color-github: #181717;
@@ -295,4 +321,19 @@ body {
     50% {
         opacity: 0.6;
     }
+}
+
+/* View Transitions circular ripple theme switcher */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    z-index: 9999;
 }

@@ -28,10 +28,10 @@ export function ProjectGrid({ projects, title }: ProjectGridProps) {
       </div>
 
       <div className="flex justify-end">
-        <Button asChild>
+        <Button asChild variant={"outline"}>
           <Link href="/projects">
             View all projects
-            <RenderIcon name="next" className="text-secondary" />
+            <RenderIcon name="next" />
           </Link>
         </Button>
       </div>
