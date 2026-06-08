@@ -32,6 +32,9 @@ import { GoArrowRight } from "react-icons/go";
 import { SiLeetcode } from "react-icons/si";
 import { SiMedium } from "react-icons/si";
 import { SiRedis } from "react-icons/si";
+import { SiRazorpay } from "react-icons/si";
+import { SiBun } from "react-icons/si";
+import { GiBull } from "react-icons/gi";
 
 // Maps icon names to color classes for colored display
 const iconColorMap: Record<string, string> = {
@@ -66,7 +69,10 @@ const iconColorMap: Record<string, string> = {
   websocket: "text-websocket",
   leetcode: "text-leetcode",
   medium: "text-medium",
-  redis: "text-redis"
+  redis: "text-redis",
+  bun: "text-bun",
+  razorpay: "text-razorpay",
+  bullmq: "text-bullmq",
 };
 
 // Maps icon names to their React components
@@ -105,7 +111,10 @@ const iconComponentMap: Record<
   websocket: SiSocketdotio,
   leetcode: SiLeetcode,
   medium: SiMedium,
-  redis: SiRedis
+  redis: SiRedis,
+  bun: SiBun,
+  razorpay: SiRazorpay,
+  bullmq: GiBull,
 };
 
 interface RenderIconProps {
@@ -127,7 +136,7 @@ export function RenderIcon({
   const iconClassName = cn(
     withColor && iconColorMap[normalized],
     !withColor && "text-muted-foreground",
-    className
+    className,
   );
 
   // Renders icon node (component or fallback text node)
@@ -164,7 +173,7 @@ export function RenderIcon({
           "pointer-events-none absolute z-20 left-1/2 -translate-x-1/2",
           "bottom-full mb-2 px-2 py-1 rounded bg-popover text-xs text-popover-foreground shadow",
           "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-150",
-          "whitespace-nowrap"
+          "whitespace-nowrap",
         )}
         role="tooltip"
       >

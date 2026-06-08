@@ -1,13 +1,13 @@
 /** Represents a social media or contact link. */
 export interface SocialLink {
   platform:
-  | "github"
-  | "linkedin"
-  | "twitter"
-  | "email"
-  | "website"
-  | "leetcode"
-  | "medium";
+    | "github"
+    | "linkedin"
+    | "twitter"
+    | "email"
+    | "website"
+    | "leetcode"
+    | "medium";
   url: string;
   label?: string;
 }
@@ -23,12 +23,12 @@ export interface ProjectMetadata {
   timeline?: string;
   role?: string;
   team?: string;
-  status?: string;
+  status?: "Building" | "Completed";
 }
 
 /** Represents detailed project information sections. */
 export interface ProjectDetails {
-  overview?: string;
+  overview: string;
   whyBuilt?: string[];
   features?: string[];
   techStack?: {
@@ -60,22 +60,23 @@ export interface Project {
   featured?: boolean;
   metadata?: ProjectMetadata;
   details?:
-  | ProjectDetails
-  | {
-    features: string[];
-  }[];
+    | ProjectDetails
+    | {
+        features: string[];
+      }[];
 }
 
 /** Represents a work experience entry. */
 export interface Experience {
   id: string;
   company: string;
+  companyUrl: string;
   role: string;
   period: string;
   highlights: string[];
   logoUrl?: string;
-  techStack?: string[];
-  place?: string;
+  techStack: string[];
+  place: string;
 }
 
 /** Represents a testimonial from a client or collaborator. */

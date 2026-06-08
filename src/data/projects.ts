@@ -1,60 +1,85 @@
 import ReelinkCover from "@/assets/covers/reelink-cover.png";
-import RecodeCover from "@/assets/covers/recode-cover.png";
+import RecodeCover from "@/assets/covers/recode-gruv-cove.png";
 import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext-cover.png";
-import AnimeCliCover from "@/assets/covers/anime-cli-cover.png";
-import YtExtensionCover from "@/assets/covers/yt-ext-cover-dark.png";
+import AnimeCliCover from "@/assets/covers/anime-cli.png";
+import YtExtensionCover from "@/assets/covers/yt-ext-gruv-cover.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 import DmBrooCover from "@/assets/covers/DmBroo-cover.png";
 import FramefulCover from "@/assets/covers/frameful-cover.png";
 
-export const projects = [
+import { Project } from "@/types/portfolio";
+
+export const projects: Project[] = [
   {
     id: "dmbroo-instagram-automation",
     title: "DmBroo",
     description:
-      "A calm, creator-first Instagram automation tool. You keep posting — DmBroo handles scheduling, engagement workflows, and consistency in the background without spammy growth tactics.",
+      'Developed at <a class="font-medium text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-2 hover:decoration-primary/60 transition-colors" href="https://www.dmbroo.com">DmBroo</a>. Began as a freelance contract that evolved into a full time engineering role.',
     imageUrl: DmBrooCover.src,
-    techStack: ["typescript", "nextjs", "nodejs", "mongodb", "redis"],
+    techStack: [
+      "bun",
+      "react",
+      "nextjs",
+      "tailwindcss",
+      "typescript",
+      "nodejs",
+      "mongodb",
+      "redis",
+      "bullmq",
+      "prisma",
+      "razorpay",
+    ],
     links: [{ label: "Live", url: "https://www.dmbroo.com" }],
     featured: true,
     metadata: {
       timeline: "2 months",
       role: "Full Stack Developer",
       team: "Solo",
-      status: "Building",
+      status: "Completed",
     },
     details: {
       overview:
-        "DmBroo is a modern Instagram automation tool built for creators and indie builders who want consistency without turning their accounts into spam machines. The platform focuses on background automation — post scheduling, engagement flows, and analytics — while keeping the creator in control of content. Designed with a calm, minimal SaaS aesthetic, DmBroo prioritizes trust, simplicity, and sustainable growth over aggressive tactics.",
-
-      whyBuilt: [
-        "Creators want consistency without manually handling repetitive posting and engagement tasks.",
-        "Most Instagram automation tools feel spammy, aggressive, or unsafe for long-term creator growth.",
-        "I wanted to build an automation product that feels calm, trustworthy, and founder-built.",
-      ],
+        "DmBroo is a creator-first Instagram automation SaaS that automates message replies and engagement based on user interactions. Built with Next.js, Node.js, and Redis, the platform listens to Meta webhook events to trigger automated comment replies, direct messages, and custom lead generation forms when users comment on a post, reply to a story, or send a DM. The application prioritizes account safety with custom queue rate-limiting, proactive long-lived token refreshing, and automatic user deauthorization syncing while It's frontend features a rich dashboard with widgets displaying key performance metrics like new followers gained, total outreach, and best time to post.",
 
       features: [
-        "Instagram post scheduling with background automation",
-        "Automated engagement workflows (likes, basic interactions) with safe rate limits",
-        "Clean analytics dashboard to track post performance and engagement trends",
-        "Account connection and authentication flow",
-        "Minimal, distraction-free UI focused on creators",
-        "Status-based job tracking (Building, Running, Completed)",
-        "Scalable backend architecture for future automation workflows",
+        "Automated responses triggered by Instagram comments on posts, story replies, or direct messages matching specific text, or phrases.",
+        "Ask-to-Follow Gate: Gated delivery that checks if the interacting user follows the account, sending a customizable follow-request link before delivering the main payload.",
+        "Opening Messages: Sends interactive, button-enabled ice-breaker messages to users before launching the full automation sequence.",
+        "In-App Lead Gen Forms: Drag-and-drop custom forms supporting text, numbers, dropdowns, ratings, file uploads, and checkboxes to capture customer contact data.",
+        "Analytics Dashboard: Rich widgets displaying key performance indicators, total automation executions, new followers gained, and best time to post.",
+        "Meta OAuth & Token Lifecycle: Multi-account secure connection with cron-based 60-day token auto-refreshing and a deauthorization webhook listener to automatically disconnect revoked accounts.",
+        "Redis/BullMQ Queue Worker: Dedicated background worker package with per-user concurrency limiting and rate-limiting controls to prevent Meta API blocks.",
+        "Tiered Subscription System: Razorpay-integrated subscription plans (Free, Basic, Premium, Black) mapped to dynamic credit limits, usage ledgers, and automated email alerts.",
       ],
 
       techStack: {
-        frontend: ["React", "Next.Js", "Tailwind", "Typescript"],
-        backend: ["Node.js", "Express.js", "Next.Js", "Redis"],
-        database: ["MongoDB"],
-        tools: ["Vercel", "Background Workers", "BullMq"],
+        frontend: ["Bun", "React", "Next.Js", "Tailwind", "Typescript"],
+        backend: ["Bun", "Node.js", "Redis", "BullMq"],
+        database: ["MongoDB", "Prisma"],
+        tools: [
+          "META",
+          "Vercel",
+          "Upstash",
+          "Razorpay",
+          "Resend",
+          "Clerk",
+          "UploadThing",
+        ],
       },
 
       challenges: [
-        "Well its full of challenges, especially while moving it to production.",
+        "Duplicate Webhook Deliveries from Meta",
+        "Stateless State Management for Multi-Step Flows ('Ask-to-Follow')",
+        "API Rate Limiting & Platform Safeguards",
+        "Database Write Bottlenecks during Peak Load",
       ],
 
-      solutions: ["Will update later"],
+      solutions: [
+        "Implemented a two-stage deduplication mechanism using Redis. </br> First checks a permanent 'already handled' event log in Redis to filter out duplicate webhook retries. </br> Second, acquires a temporary 30-second atomic processing lock (NX) in Redis to block concurrent worker threads from processing the same event.",
+        "Created a Redis-backed state machine to track user opt-ins, follow gates, and opening messages across discrete webhooks. </br> Halts execution, registers a pending confirmation in Redis, and leverages Instagram Quick Replies as stateful callbacks to trigger the final payload delivery.",
+        "Extracted Graph API rate limit usage headers in real-time on every outgoing request to keep a Redis tracking cache updated. </br> Enforced a 2-second account-level spam guard cooldown and built global panic thresholds that automatically throttle non-premium accounts when the app's overall API limits are threatened.",
+        "Implemented a Write-Behind pattern using Redis lists (rpush) to buffer execution outcomes asynchronously. </br>w Built a background flusher interval that drains the buffer in batches of 500, bulk-deduplicates them, and performs a single transactional DB write every 5 seconds.",
+      ],
     },
   },
   {

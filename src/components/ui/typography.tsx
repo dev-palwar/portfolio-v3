@@ -18,13 +18,11 @@ type TypographyProps = React.HTMLAttributes<HTMLElement> & {
 const VARIANT_CLASSES: Record<TypographyVariant, string> = {
   heading1:
     "text-2xl md:text-3xl font-medium tracking-tight animate-fade-in-up capitalize",
-  heading2:
-    "text-base md:text-lg font-medium tracking-tight capitalize",
-  heading3:
-    "text-sm md:text-sm font-medium tracking-tight capitalize",
+  heading2: "text-base md:text-lg font-medium tracking-tight capitalize",
+  heading3: "text-sm md:text-sm font-medium tracking-tight capitalize",
   body: "md:text-lg whitespace-pre-wrap animate-fade-in-up animate-stagger-1",
   bodySm: "text-sm",
-  listItem: "text-base",
+  listItem: "text-base leading-relaxed tracking-normal",
   helpText: "text-xs font-medium",
 };
 

@@ -1,10 +1,13 @@
 import finocoLogo from "@/assets/icons/Finoco Blue Icon.png";
 import lumaraLogo from "@/assets/icons/lumara-jewels.jpeg";
+import DmBrooIcon from "@/assets/icons/dmbroo-logo.jpeg";
+import { Experience } from "@/types/portfolio";
 
-export const experience = [
+export const experience: Experience[] = [
   {
-    id: "exp-1",
+    id: "exp-2",
     company: "Finoco AI",
+    companyUrl: "https://finoco.ai/",
     role: "Frontend Developer",
     period: "June 2025 - Present",
     highlights: [
@@ -28,8 +31,38 @@ export const experience = [
     place: "Bangalore, India | Remote",
   },
   {
-    id: "exp-2",
+    id: "exp-3",
+    company: "DmBroo",
+    companyUrl: "https://www.dmbroo.com/",
+    role: "Founding Engineer",
+    period: "June 2025 - Dec 2025",
+    highlights: [
+      "Single-handedly built a robust webhook ingestion and processing pipeline using a dedicated NodeJs worker (BullMQ/Redis) to reliably execute features like automated DMs, public comment replies, and ask-to-follow triggers",
+      "Designed and developed dashboard widgets, visualizing critical engagement metrics such as best time to post, follower growth trends, and total outreach.",
+      "Developed a highly customizable form builder using React Hook Form and Zod, enabling users to capture dynamic lead data directly through their Instagram automation flows.",
+      "Implemented a workspace system allowing users to securely connect and manage multiple Instagram accounts under a single unified dashboard, streamlining agency and power-user workflows.",
+      "Integrated Razorpay for subscription payments and built a transactional credit ledger, automatically debiting user credits in real-time upon successful automation executions.",
+    ],
+    logoUrl: DmBrooIcon.src,
+    techStack: [
+      "bun",
+      "react",
+      "nextjs",
+      "tailwindcss",
+      "typescript",
+      "nodejs",
+      "mongodb",
+      "redis",
+      "bullmq",
+      "prisma",
+      "razorpay",
+    ],
+    place: "Delhi, India | Remote",
+  },
+  {
+    id: "exp-1",
     company: "Lumara Jewels",
+    companyUrl: "https://www.lumarajewels.com/",
     role: "Frontend Developer Intern",
     period: "Dec 2024 - May 2025",
     highlights: [
@@ -41,15 +74,7 @@ export const experience = [
       "Created a dynamic cart page with three subpages: cart details, address selection, and checkout, ensuring a smooth checkout process.",
     ],
     logoUrl: lumaraLogo.src,
-    techStack: [
-      "react",
-      "nextjs",
-      "tailwindcss",
-      "typescript",
-      "nodejs",
-      "expressjs",
-      "mongodb",
-    ],
+    techStack: ["react", "nextjs", "tailwindcss", "typescript"],
     place: "Delhi, India | Remote",
   },
 ];

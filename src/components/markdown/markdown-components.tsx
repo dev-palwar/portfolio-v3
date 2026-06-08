@@ -80,7 +80,7 @@ export const markdownComponents: Components = {
   p({ node, children, ...props }) {
     return (
       <p
-        className="text-[1.0625rem] leading-[1.8] text-muted-foreground mb-5 last:mb-0"
+        className="text-[1.0625rem] leading-[1.8] text-foreground/90 mb-5 last:mb-0"
         {...props}
       >
         {children}
@@ -114,7 +114,7 @@ export const markdownComponents: Components = {
   li({ node, children, ...props }) {
     return (
       <li
-        className="relative pl-6 text-[1.0625rem] leading-[1.75] text-muted-foreground before:content-['•'] before:absolute before:left-0 before:text-muted-foreground/60 before:font-bold"
+        className="relative pl-6 text-[1.0625rem] leading-[1.75] text-foreground/90 before:content-['•'] before:absolute before:left-0 before:text-foreground/60 before:font-bold"
         {...props}
       >
         {children}
@@ -220,7 +220,7 @@ export const markdownComponents: Components = {
   blockquote({ node, children, ...props }) {
     return (
       <blockquote
-        className="my-6 pl-5 border-l-[3px] border-border italic text-muted-foreground"
+        className="my-6 pl-5 border-l-[3px] border-border italic text-foreground/80"
         {...props}
       >
         {children}
@@ -286,7 +286,7 @@ export const markdownComponents: Components = {
 
   td({ node, children, ...props }) {
     return (
-      <td className="px-4 py-3 text-muted-foreground" {...props}>
+      <td className="px-4 py-3 text-foreground/90" {...props}>
         {children}
       </td>
     );

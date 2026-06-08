@@ -33,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               fill
               className={cn(
                 "object-cover transition-all brightness-100",
-                isHovered && "blur-md brightness-50"
+                isHovered && "blur-md brightness-50",
               )}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
             />
@@ -72,8 +72,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {title}
             </Typography>
 
-            {metadata?.status && (
-              metadata.status === "Building" ? (
+            {metadata?.status &&
+              (metadata.status === "Building" ? (
                 <Typography
                   variant="helpText"
                   className="border-none rounded-md px-2 py-1 w-fit mt-2
@@ -90,10 +90,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 >
                   {metadata.status.toLowerCase()}
                 </Typography>
-              )
-            )}
-
-
+              ))}
           </Link>
           <Typography
             variant="bodySm"
@@ -107,7 +104,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex justify-between items-center">
           {/* techStack */}
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            {techStack.map((tag) => (
+            {techStack.slice(0, 5).map((tag) => (
               <RenderIcon
                 key={tag}
                 name={tag}

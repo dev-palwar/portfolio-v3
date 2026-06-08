@@ -10,7 +10,7 @@ interface ProjectDetailsProps {
 }
 
 function isDetailedProject(
-  details: ProjectDetails | { features: string[] }[] | undefined
+  details: ProjectDetails | { features: string[] }[] | undefined,
 ): details is ProjectDetails {
   return details !== undefined && !Array.isArray(details);
 }
@@ -42,11 +42,15 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
             <div className="spacing-secondary">
               <Typography
                 variant="helpText"
-                className="border-none rounded-md px-2 py-1 w-fit mt-2
-                  text-yellow-600 bg-yellow-500/10
-                 animate-[softPulse_1.5s_ease-in-out_infinite]"
+                className={`border-none rounded-md px-2 py-1 w-fit mt-2
+                ${
+                  project.metadata?.status?.toLowerCase() === "completed"
+                    ? "text-green-600 bg-green-500/10"
+                    : "text-yellow-600 bg-yellow-500/10 animate-[softPulse_1.5s_ease-in-out_infinite]"
+                }`}
               >
-                {project.metadata?.status && project?.metadata?.status.toLowerCase()}
+                {project.metadata?.status &&
+                  project?.metadata?.status.toLowerCase()}
               </Typography>
               <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                 {project.title}
@@ -308,55 +312,55 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                               }}
                             />
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
                   )}
                 {(detailedDetails.impact.users ||
                   detailedDetails.impact.views ||
                   detailedDetails.impact.metrics) && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-border">
-                      {detailedDetails.impact.users && (
-                        <div>
-                          <Typography
-                            variant="bodySm"
-                            className="text-muted-foreground mb-1"
-                          >
-                            Users
-                          </Typography>
-                          <Typography variant="heading2">
-                            {detailedDetails.impact.users}
-                          </Typography>
-                        </div>
-                      )}
-                      {detailedDetails.impact.views && (
-                        <div>
-                          <Typography
-                            variant="bodySm"
-                            className="text-muted-foreground mb-1"
-                          >
-                            Views
-                          </Typography>
-                          <Typography variant="heading2">
-                            {detailedDetails.impact.views}
-                          </Typography>
-                        </div>
-                      )}
-                      {detailedDetails.impact.metrics && (
-                        <div>
-                          <Typography
-                            variant="bodySm"
-                            className="text-muted-foreground mb-1"
-                          >
-                            Metrics
-                          </Typography>
-                          <Typography variant="heading2">
-                            {detailedDetails.impact.metrics}
-                          </Typography>
-                        </div>
-                      )}
-                    </div>
-                  )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-card border border-border">
+                    {detailedDetails.impact.users && (
+                      <div>
+                        <Typography
+                          variant="bodySm"
+                          className="text-muted-foreground mb-1"
+                        >
+                          Users
+                        </Typography>
+                        <Typography variant="heading2">
+                          {detailedDetails.impact.users}
+                        </Typography>
+                      </div>
+                    )}
+                    {detailedDetails.impact.views && (
+                      <div>
+                        <Typography
+                          variant="bodySm"
+                          className="text-muted-foreground mb-1"
+                        >
+                          Views
+                        </Typography>
+                        <Typography variant="heading2">
+                          {detailedDetails.impact.views}
+                        </Typography>
+                      </div>
+                    )}
+                    {detailedDetails.impact.metrics && (
+                      <div>
+                        <Typography
+                          variant="bodySm"
+                          className="text-muted-foreground mb-1"
+                        >
+                          Metrics
+                        </Typography>
+                        <Typography variant="heading2">
+                          {detailedDetails.impact.metrics}
+                        </Typography>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </section>
           )}
@@ -405,7 +409,7 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                       dangerouslySetInnerHTML={{ __html: feature }}
                     />
                   </li>
-                ))
+                )),
               )}
             </ul>
           </div>

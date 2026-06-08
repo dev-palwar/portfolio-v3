@@ -24,7 +24,7 @@ export default function WritingsPage() {
             </span>
           </Typography>
           <div className="mt-6 sm:mt-10 space-y-6 sm:space-y-8">
-            {writings.map((writing, index) => (
+            {writings.toReversed().map((writing, index) => (
               <div
                 key={writing.id}
                 className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 animate-fade-in-up"
