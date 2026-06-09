@@ -9,7 +9,7 @@ export const experience: Experience[] = [
     company: "Finoco AI",
     companyUrl: "https://finoco.ai/",
     role: "Frontend Developer",
-    period: "June 2025 - Present",
+    period: "Jan 2026 - Present",
     highlights: [
       "Built and maintained the frontend of an Excel Add-in that integrates AI capabilities directly into Microsoft Excel using Office.js",
       "Developed UI components for Excel task panes using React and TypeScript, ensuring smooth performance within Excel’s webview environment.",
