@@ -47,6 +47,7 @@ svg {
 @theme {
     /* Typography */
     --font-display: var(--font-outfit), sans-serif;
+    --font-family-serif: var(--font-playfair), Georgia, serif;
 
     /* Border radius */
     --radius: 0.625rem;

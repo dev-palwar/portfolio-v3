@@ -4,11 +4,16 @@ import { ThemeProvider } from "../providers/theme-provider";
 import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
 import NextTopLoader from "nextjs-toploader";
-import { Outfit } from "next/font/google";
+import { Outfit, Playfair_Display } from "next/font/google";
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/me.jpg" type="image/jpg" />
-      <body className={`antialiased ${outfit.variable}`}>
+      <body className={`antialiased ${outfit.variable} ${playfair.variable}`}>
         <NextTopLoader />
         <ThemeProvider
           attribute="class"

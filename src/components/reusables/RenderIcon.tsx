@@ -153,7 +153,7 @@ export function RenderIcon({
       : normalized.charAt(0).toUpperCase() + normalized.slice(1);
 
   const tooltipNode = (
-    <div className="relative inline-block group focus-within:outline-none">
+    <div className="relative inline-block group/icon focus-within:outline-none">
       {url ? (
         <a
           href={url}
@@ -172,7 +172,7 @@ export function RenderIcon({
         className={cn(
           "pointer-events-none absolute z-20 left-1/2 -translate-x-1/2",
           "bottom-full mb-2 px-2 py-1 rounded bg-popover text-xs text-popover-foreground shadow",
-          "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-150",
+          "opacity-0 group-hover/icon:opacity-100 group-focus-within/icon:opacity-100 transition-opacity duration-150",
           "whitespace-nowrap",
         )}
         role="tooltip"

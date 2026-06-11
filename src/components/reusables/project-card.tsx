@@ -3,9 +3,7 @@
 import Image from "next/image";
 import type { Project } from "@/types/portfolio";
 import { RenderIcon } from "../reusables/RenderIcon";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Typography } from "../ui/typography";
 import Link from "next/link";
 
 interface ProjectCardProps {
@@ -16,116 +14,113 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const { id, title, description, imageUrl, techStack, links, metadata } =
     project;
 
-  const [isHovered, setIsHovered] = useState(false);
+  const isBuilding = metadata?.status === "Building";
+  const statusLabel = isBuilding ? "Building" : (metadata?.status ?? null);
 
   return (
-    <article className="h-full flex flex-col rounded-md border border-border bg-card overflow-hidden">
-      {/* Image or placeholder */}
-      <div className="relative aspect-video">
-        {imageUrl ? (
-          <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+    <article className="group h-full flex flex-col rounded-xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+      {/* Image Wrapper with Hover Controls */}
+      <div className="relative aspect-video overflow-hidden group/image bg-muted border-b border-border">
+        <Link href={`/projects/${id}`} className="absolute inset-0 block z-0">
+          {imageUrl ? (
             <Image
               src={imageUrl}
               alt={title}
               fill
-              className={cn(
-                "object-cover transition-all brightness-100",
-                isHovered && "blur-md brightness-50",
-              )}
+              className="object-cover transition-transform duration-500 group-hover/image:scale-[1.04]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
             />
-            {isHovered && (
-              // Overlay
-              <div className="absolute bottom-0 left-0 w-full h-full p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                {links && links.length > 0 && (
-                  <div className="h-full flex justify-center items-center flex-wrap gap-4 sm:gap-8">
-                    {links.map((link) => (
-                      <RenderIcon
-                        key={link.label}
-                        name={link.label}
-                        url={link.url}
-                        className="cursor-pointer text-2xl sm:text-4xl text-white"
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className="w-full h-full bg-placeholder-bg border-b border-dashed border-placeholder-border flex items-center justify-center">
-            <div className="text-muted-foreground/40 text-sm">
-              Image placeholder
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-muted-foreground/40 text-sm">No image</span>
             </div>
-          </div>
-        )}
+          )}
+        </Link>
+
+        {/* Hover Overlay with Action Buttons */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center gap-3 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10 pointer-events-none group-hover/image:pointer-events-auto">
+          {links && links.length > 0 ? (
+            links.map((link, idx) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "px-4 py-2 text-xs font-semibold bg-background hover:bg-background text-foreground border border-border/40 rounded-lg shadow-md flex items-center gap-2 hover:scale-[1.05] transition-all duration-300 ease-out transform translate-y-3 opacity-0 group-hover/image:translate-y-0 group-hover/image:opacity-100",
+                  idx === 0 ? "delay-[0ms]" : "delay-[75ms]",
+                )}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <RenderIcon
+                  name={link.label}
+                  className="text-sm shrink-0"
+                  withColor={true}
+                />
+                {/* <span>{link.label === "Live" ? "Live site" : link.label}</span> */}
+              </a>
+            ))
+          ) : (
+            <Link
+              href={`/projects/${id}`}
+              className="px-4 py-2 text-xs font-semibold bg-background/90 hover:bg-background text-foreground border border-border/40 rounded-lg shadow-md flex items-center gap-2 hover:scale-[1.05] transition-all duration-300 ease-out transform translate-y-3 opacity-0 group-hover/image:translate-y-0 group-hover/image:opacity-100"
+            >
+              <span>View details</span>
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Content */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-4 sm:gap-8">
-        <div className="flex flex-col gap-2 sm:gap-4">
-          <Link href={`/projects/${id}`}>
-            <Typography variant="heading2" className="hover:underline">
-              {title}
-            </Typography>
+      <div className="p-5 sm:p-6 flex-1 flex flex-col gap-3">
+        {/* Title */}
+        <Link href={`/projects/${id}`}>
+          <h2 className="text-2xl sm:text-3xl font-serif font-normal tracking-tight leading-tight hover:opacity-70 transition-opacity duration-200">
+            {title}
+          </h2>
+        </Link>
 
-            {metadata?.status &&
-              (metadata.status === "Building" ? (
-                <Typography
-                  variant="helpText"
-                  className="border-none rounded-md px-2 py-1 w-fit mt-2
-                  text-yellow-600 bg-yellow-500/10
-                 animate-[softPulse_1.5s_ease-in-out_infinite]"
-                >
-                  {metadata.status.toLowerCase()}
-                </Typography>
-              ) : (
-                <Typography
-                  variant="helpText"
-                  className="border-none rounded-md px-2 py-1 w-fit mt-2
-                 border-green-500 text-green-600 bg-green-500/10"
-                >
-                  {metadata.status.toLowerCase()}
-                </Typography>
-              ))}
-          </Link>
-          <Typography
-            variant="bodySm"
-            className="line-clamp-3 sm:text-base"
-            dangerouslySetInnerHTML={{
-              __html: description.replace(/\n/g, "<br />"),
-            }}
-          />
+        {/* Period + Status row */}
+        <div className="flex items-center justify-between gap-2">
+          {metadata?.timeline && (
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              {metadata.timeline}
+            </p>
+          )}
+          {statusLabel && (
+            <span
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest",
+                isBuilding
+                  ? "text-yellow-500 animate-[softPulse_1.5s_ease-in-out_infinite]"
+                  : "text-green-500",
+              )}
+            >
+              {statusLabel}
+            </span>
+          )}
         </div>
 
-        <div className="flex justify-between items-center">
-          {/* techStack */}
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {techStack.slice(0, 5).map((tag) => (
+        {/* Description */}
+        <p
+          className="text-sm text-muted-foreground leading-relaxed line-clamp-3"
+          dangerouslySetInnerHTML={{
+            __html: description.replace(/\n/g, "<br />"),
+          }}
+        />
+
+        {/* Footer: tech stack only */}
+        <div className="mt-auto pt-3 flex items-center justify-between gap-3 border-t border-border/60">
+          <div className="flex items-center gap-1.5 shrink-0">
+            {techStack.slice(0, 4).map((tag) => (
               <RenderIcon
                 key={tag}
                 name={tag}
-                className="text-lg sm:text-xl"
+                className="text-base"
                 withColor={true}
               />
             ))}
           </div>
-
-          <Link
-            href={`/projects/${id}`}
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200 flex items-center gap-1 hover:underline"
-          >
-            <Typography
-              variant="bodySm"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:underline"
-            >
-              View details
-            </Typography>
-            <RenderIcon name="next" />
-          </Link>
         </div>
       </div>
     </article>
