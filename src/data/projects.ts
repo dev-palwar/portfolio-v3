@@ -89,7 +89,7 @@ export const projects: Project[] = [
       "A fast, browser-based screen recording tool that lets you record, customize with beautiful backgrounds, and export polished videos with no sign-up required.",
     imageUrl: FramefulCover.src,
     techStack: ["react", "typescript", "vite", "tailwindcss"],
-    links: [{ label: "Live", url: "https://frameful.devpalwar.xyz" }],
+    links: [{ label: "Live", url: "https://frameful.devpalwar.me" }],
     featured: true,
     metadata: {
       timeline: "3 weeks",
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     imageUrl: ReelinkCover.src,
     techStack: ["react", "sass", "expressjs", "mongodb", "nodejs"],
     links: [
-      { label: "Live", url: "https://reelink.devpalwar.xyz/" },
+      { label: "Live", url: "https://reelink.devpalwar.me/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/Movie-app" },
     ],
     featured: false,
@@ -220,7 +220,7 @@ export const projects: Project[] = [
       "prisma",
     ],
     links: [
-      { label: "Live", url: "https://recode.devpalwar.xyz/" },
+      { label: "Live", url: "https://recode.devpalwar.me/" },
       { label: "GitHub", url: "https://github.com/dev-palwar/Recode" },
     ],
     featured: true,
