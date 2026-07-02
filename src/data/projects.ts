@@ -1,11 +1,14 @@
 import ReelinkCover from "@/assets/covers/reelink-cover.png";
-import RecodeCover from "@/assets/covers/recode-gruv-cove.png";
-import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext-cover.png";
-import AnimeCliCover from "@/assets/covers/anime-cli.png";
-import YtExtensionCover from "@/assets/covers/yt-ext-gruv-cover.png";
+import RecodeCover from "@/assets/covers/recode-gruv.png";
+import RecodeLightCover from "@/assets/covers/recode-light.png";
+import RecodeLeetcodeExtensionCover from "@/assets/covers/recode-ext.png";
+import AnimeCliCover from "@/assets/covers/ani-cli-gruv.png";
+import AnimeCliLightCover from "@/assets/covers/ani-cli-light.png";
+import YtExtensionCover from "@/assets/covers/yt-ext-gruv.png";
+import YtExtensionLightCover from "@/assets/covers/yt-ext-light.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
-import DmBrooCover from "@/assets/covers/DmBroo-cover.png";
-import FramefulCover from "@/assets/covers/frameful-cover.png";
+import DmBrooCover from "@/assets/covers/dmbroo.png";
+import FramefulCover from "@/assets/covers/frameful-light.jpg";
 
 import { Project } from "@/types/portfolio";
 
@@ -32,10 +35,10 @@ export const projects: Project[] = [
     links: [{ label: "Live", url: "https://www.dmbroo.com" }],
     featured: true,
     metadata: {
-      timeline: "2 months",
+      timeline: "",
       role: "Full Stack Developer",
       team: "Solo",
-      status: "Completed",
+      status: "Building",
     },
     details: {
       overview:
@@ -92,7 +95,7 @@ export const projects: Project[] = [
     links: [{ label: "Live", url: "https://frameful.devpalwar.me" }],
     featured: true,
     metadata: {
-      timeline: "3 weeks",
+      timeline: "",
       role: "Founder & Lead Developer",
       team: "Solo",
       status: "Building",
@@ -146,7 +149,7 @@ export const projects: Project[] = [
     ],
     featured: false,
     metadata: {
-      timeline: "2 months",
+      timeline: "",
       role: "Full Stack Developer",
       team: "Solo",
       status: "Completed",
@@ -211,6 +214,7 @@ export const projects: Project[] = [
     description:
       "A simple LeetCode solved problems tracker. I kept forgetting which problems I'd already done, and opening LeetCode to scroll through submissions felt like too much effort. So I built this clean, minimal tracker that just works.",
     imageUrl: RecodeCover.src,
+    lightImageUrl: RecodeLightCover.src,
     techStack: [
       "nextjs",
       "react",
@@ -225,7 +229,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     metadata: {
-      timeline: "1 month",
+      timeline: "",
       role: "Full Stack Developer",
       team: "Solo",
       status: "Completed",
@@ -276,13 +280,14 @@ export const projects: Project[] = [
     description:
       "A simple command-line program for downloading animes. Built while learning web scraping - enter an anime name, and it fetches relevant results, allowing you to download your choice. Easy to use and perfect for anime enthusiasts who prefer the terminal.",
     imageUrl: AnimeCliCover.src,
+    lightImageUrl: AnimeCliLightCover.src,
     techStack: ["nodejs", "javascript"],
     links: [
       { label: "GitHub", url: "https://github.com/dev-palwar/Anime-cli" },
     ],
     featured: true,
     metadata: {
-      timeline: "2 weeks",
+      timeline: "",
       role: "Developer",
       team: "Solo",
       status: "Completed",
@@ -339,11 +344,12 @@ export const projects: Project[] = [
     description:
       "A simple Chrome extension that moves YouTube comments to a sidebar above the recommended videos section. All comment features work - likes, replies, posting, everything! Clean UI that matches YouTube's design.",
     imageUrl: YtExtensionCover.src,
+    lightImageUrl: YtExtensionLightCover.src,
     techStack: ["javascript", "html", "css"],
     links: [{ label: "GitHub", url: "https://github.com/dev-palwar/yt-ext" }],
     featured: false,
     metadata: {
-      timeline: "1 week",
+      timeline: "",
       role: "Developer",
       team: "Solo",
       status: "Completed",
@@ -398,7 +404,7 @@ export const projects: Project[] = [
     ],
     featured: false,
     metadata: {
-      timeline: "1 week",
+      timeline: "",
       role: "Developer",
       team: "Solo",
       status: "Completed",

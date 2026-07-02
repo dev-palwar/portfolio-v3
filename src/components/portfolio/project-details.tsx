@@ -4,6 +4,7 @@ import { Typography } from "@/components/ui/typography";
 import { ProjectDetails, type Project } from "@/types/portfolio";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface ProjectDetailsProps {
   project: Project;
@@ -31,10 +32,23 @@ export function ProjectDetailsComponent({ project }: ProjectDetailsProps) {
                 src={project.imageUrl}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className={cn(
+                  "object-cover",
+                  project.lightImageUrl && "hidden dark:block"
+                )}
                 priority
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
               />
+              {project.lightImageUrl && (
+                <Image
+                  src={project.lightImageUrl}
+                  alt={project.title}
+                  fill
+                  className="object-cover block dark:hidden"
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
+                />
+              )}
             </div>
           )}
 

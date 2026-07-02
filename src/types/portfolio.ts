@@ -55,6 +55,7 @@ export interface Project {
   title: string;
   description: string;
   imageUrl?: string;
+  lightImageUrl?: string;
   techStack: string[];
   links?: ProjectLink[];
   featured?: boolean;
@@ -92,7 +93,6 @@ export interface Testimonial {
 export interface Writing {
   id: string;
   title: string;
-  date: string;
   coverImageUrl?: string;
   contentPath: string;
 }

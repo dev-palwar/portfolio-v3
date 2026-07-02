@@ -11,7 +11,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { id, title, description, imageUrl, techStack, links, metadata } =
+  const { id, title, description, imageUrl, lightImageUrl, techStack, links, metadata } =
     project;
 
   const isBuilding = metadata?.status === "Building";
@@ -20,16 +20,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="group h-full flex flex-col rounded-xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
       {/* Image Wrapper with Hover Controls */}
-      <div className="relative aspect-video overflow-hidden group/image bg-muted border-b border-border">
+      <div className="relative aspect-video h-62 overflow-hidden group/image bg-muted border-b border-border">
         <Link href={`/projects/${id}`} className="absolute inset-0 block z-0">
           {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover/image:scale-[1.04]"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-            />
+            <>
+              <Image
+                src={imageUrl}
+                alt={title}
+                fill
+                className={cn(
+                  "object-cover transition-transform duration-500 group-hover/image:scale-[1.04]",
+                  lightImageUrl && "hidden dark:block"
+                )}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              />
+              {lightImageUrl && (
+                <Image
+                  src={lightImageUrl}
+                  alt={title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover/image:scale-[1.04] block dark:hidden"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                />
+              )}
+            </>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <span className="text-muted-foreground/40 text-sm">No image</span>
@@ -38,7 +52,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </Link>
 
         {/* Hover Overlay with Action Buttons */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center gap-3 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10 pointer-events-none group-hover/image:pointer-events-auto">
+        <div className="dark absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center gap-10 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10 pointer-events-none group-hover/image:pointer-events-auto">
           {links && links.length > 0 ? (
             links.map((link, idx) => (
               <a
@@ -47,14 +61,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "px-4 py-2 text-xs font-semibold bg-background hover:bg-background text-foreground border border-border/40 rounded-lg shadow-md flex items-center gap-2 hover:scale-[1.05] transition-all duration-300 ease-out transform translate-y-3 opacity-0 group-hover/image:translate-y-0 group-hover/image:opacity-100",
-                  idx === 0 ? "delay-[0ms]" : "delay-[75ms]",
+                  "text-xs font-semibold shadow-md flex items-center gap-2 hover:scale-[1.05] transition-all duration-300 ease-out transform translate-y-3 opacity-0 group-hover/image:translate-y-0 group-hover/image:opacity-100",
+                  idx === 0 ? "delay-0" : "delay-75",
                 )}
                 onClick={(e) => e.stopPropagation()}
               >
                 <RenderIcon
                   name={link.label}
-                  className="text-sm shrink-0"
+                  className="text-4xl shrink-0"
                   withColor={true}
                 />
                 {/* <span>{link.label === "Live" ? "Live site" : link.label}</span> */}

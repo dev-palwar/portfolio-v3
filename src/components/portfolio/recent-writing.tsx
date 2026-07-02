@@ -30,12 +30,12 @@ export function RecentWriting({
                   {writing.title}
                 </Typography>
               </Link>
-              <Typography
+              {/* <Typography
                 variant="helpText"
                 className="sm:text-right uppercase tracking-[0.16em] shrink-0"
               >
                 {writing.date}
-              </Typography>
+              </Typography> */}
             </div>
           ))}
         </div>

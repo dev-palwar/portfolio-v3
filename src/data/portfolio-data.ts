@@ -19,7 +19,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       platform: "twitter",
-      url: "https://x.com/dev_palwar2",
+      url: "https://x.com/devpalwar06",
       label: "Twitter",
     },
     {

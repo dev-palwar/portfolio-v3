@@ -19,7 +19,7 @@ export default function Projects() {
     } else {
       setSelectedStatus(status);
       setFilteredProjects(
-        projectsData.filter((project) => project.metadata?.status === status)
+        projectsData.filter((project) => project.metadata?.status === status),
       );
     }
   };
@@ -36,7 +36,7 @@ export default function Projects() {
       </div>
 
       <div className="section-spacing">
-        <div className="sticky top-0 z-10 backdrop-blur-xl py-2 sm:py-0">
+        <div className="sticky top-0 z-10 backdrop-blur-xl p-4">
           <div className="spacing-secondary flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
             <Typography variant="heading2">All projects</Typography>
             <Typography variant="helpText">
