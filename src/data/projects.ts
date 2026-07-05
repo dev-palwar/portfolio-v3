@@ -8,7 +8,7 @@ import YtExtensionCover from "@/assets/covers/yt-ext-gruv.png";
 import YtExtensionLightCover from "@/assets/covers/yt-ext-light.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 import DmBrooCover from "@/assets/covers/dmbroo.png";
-import FramefulCover from "@/assets/covers/frameful-light.jpg";
+import CutlineCover from "@/assets/covers/frameful-light.jpg";
 
 import { Project } from "@/types/portfolio";
 
@@ -86,13 +86,13 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "frameful-browser-recorder",
-    title: "Frameful",
+    id: "Cutline-browser-recorder",
+    title: "Cutline",
     description:
       "A fast, browser-based screen recording tool that lets you record, customize with beautiful backgrounds, and export polished videos with no sign-up required.",
-    imageUrl: FramefulCover.src,
+    imageUrl: CutlineCover.src,
     techStack: ["react", "typescript", "vite", "tailwindcss"],
-    links: [{ label: "Live", url: "https://frameful.devpalwar.me" }],
+    links: [{ label: "Live", url: "https://usecutline.devpalwar.me" }],
     featured: true,
     metadata: {
       timeline: "",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     },
     details: {
       overview:
-        "Frameful is a modern, privacy-first screen recording tool built entirely in the browser. It allows creators and educators to capture their screen, apply professional-grade backgrounds, and trim recordings without ever uploading data to a server. Designed with a sleek, minimalist aesthetic, Frameful focuses on speed and simplicity—eliminating the need for account creation or heavy software installations.",
+        "Cutline is a modern, privacy-first screen recording tool built entirely in the browser. It allows creators and educators to capture their screen, apply professional-grade backgrounds, and trim recordings without ever uploading data to a server. Designed with a sleek, minimalist aesthetic, Cutline focuses on speed and simplicity—eliminating the need for account creation or heavy software installations.",
 
       whyBuilt: [
         "Current screen recording tools are either too basic or overly complex and expensive.",

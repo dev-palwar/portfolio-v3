@@ -5,6 +5,7 @@ import { Header } from "@/components/reusables/Header";
 import Footer from "@/components/reusables/Footer";
 import NextTopLoader from "nextjs-toploader";
 import { Outfit, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
