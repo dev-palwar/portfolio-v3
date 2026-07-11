@@ -8,7 +8,7 @@ import YtExtensionCover from "@/assets/covers/yt-ext-gruv.png";
 import YtExtensionLightCover from "@/assets/covers/yt-ext-light.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 import DmBrooCover from "@/assets/covers/dmbroo.png";
-import CutlineCover from "@/assets/covers/frameful-light.jpg";
+import CutlineCover from "@/assets/covers/cutline-cover-3.jpg";
 
 import { Project } from "@/types/portfolio";
 
@@ -92,7 +92,10 @@ export const projects: Project[] = [
       "A fast, browser-based screen recording tool that lets you record, customize with beautiful backgrounds, and export polished videos with no sign-up required.",
     imageUrl: CutlineCover.src,
     techStack: ["react", "typescript", "vite", "tailwindcss"],
-    links: [{ label: "Live", url: "https://usecutline.devpalwar.me" }],
+    links: [
+      { label: "Live", url: "https://cutline-opal.vercel.app/" },
+      { label: "Github", url: "https://github.com/dev-palwar/Cutline" },
+    ],
     featured: true,
     metadata: {
       timeline: "",
@@ -346,7 +349,13 @@ export const projects: Project[] = [
     imageUrl: YtExtensionCover.src,
     lightImageUrl: YtExtensionLightCover.src,
     techStack: ["javascript", "html", "css"],
-    links: [{ label: "GitHub", url: "https://github.com/dev-palwar/yt-ext" }],
+    links: [
+      { label: "GitHub", url: "https://github.com/dev-palwar/yt-ext" },
+      {
+        label: "Live",
+        url: "https://chromewebstore.google.com/detail/ikckbhpjellpdmiinilfpkihlhnfijon?utm_source=item-share-cb",
+      },
+    ],
     featured: false,
     metadata: {
       timeline: "",
