@@ -46,7 +46,7 @@ export const markdownComponents: Components = {
   h2({ node, children, ...props }) {
     return (
       <h2
-        className="text-2xl md:text-[1.75rem] font-semibold text-foreground mt-10 mb-4 first:mt-0 tracking-tight border-b border-border/40 pb-3"
+        className="text-2xl md:text-[1.75rem] font-semibold text-foreground mt-10 mb-4 first:mt-0 tracking-tight pb-3"
         {...props}
       >
         {children}
@@ -91,10 +91,7 @@ export const markdownComponents: Components = {
   // Lists with proper styling
   ul({ node, children, ...props }) {
     return (
-      <ul
-        className="my-5 ml-1 space-y-2.5 list-none"
-        {...props}
-      >
+      <ul className="my-5 ml-1 space-y-2.5 list-none" {...props}>
         {children}
       </ul>
     );
@@ -129,7 +126,7 @@ export const markdownComponents: Components = {
     if (isInline) {
       return (
         <code
-          className="px-1.5 py-0.5 mx-0.5 rounded-md bg-muted text-foreground text-[0.9375rem] font-mono border border-border"
+          className="px-1.5 py-0.5 mx-0.5 rounded-md bg-muted text-foreground text-[0.9375rem] font-mono"
           {...props}
         >
           {children}
@@ -242,10 +239,7 @@ export const markdownComponents: Components = {
   table({ node, children, ...props }) {
     return (
       <div className="my-6 overflow-x-auto rounded-lg border border-border">
-        <table
-          className="w-full text-sm text-left"
-          {...props}
-        >
+        <table className="w-full text-sm text-left" {...props}>
           {children}
         </table>
       </div>
@@ -254,7 +248,10 @@ export const markdownComponents: Components = {
 
   thead({ node, children, ...props }) {
     return (
-      <thead className="bg-card text-foreground border-b border-border" {...props}>
+      <thead
+        className="bg-card text-foreground border-b border-border"
+        {...props}
+      >
         {children}
       </thead>
     );

@@ -33,4 +33,18 @@ export const writings = [
     coverImageUrl: "apikey.png",
     contentPath: "src/content/writings/envs.md",
   },
+  {
+    id: "barrel-exports",
+    title:
+      "Barrel Exports: The Simplest Thing You’re Not Doing And A JavaScript Pattern That Makes AI Agents Smarter.",
+    coverImageUrl: "Barrel-exports.jpg",
+    contentPath: "src/content/writings/barrel-exports.md",
+  },
+  {
+    id: "server-actions-backdoor.png",
+    title:
+      "Server Actions Are Public Endpoints — Your Middleware Was Never Involved.",
+    coverImageUrl: "server-actions-backdoor.jpg",
+    contentPath: "src/content/writings/server-actions-backdoor.md",
+  },
 ];

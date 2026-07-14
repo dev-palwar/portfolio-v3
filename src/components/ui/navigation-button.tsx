@@ -28,7 +28,7 @@ export function NavigationButton({
         onClick={() => router.back()}
         className={cn(
           "mb-8 sm:mb-12 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group px-0",
-          className
+          className,
         )}
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
@@ -42,7 +42,7 @@ export function NavigationButton({
       href={href}
       className={cn(
         "flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group text-sm sm:text-base",
-        className
+        className,
       )}
     >
       {direction === "left" ? (

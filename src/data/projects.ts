@@ -345,7 +345,7 @@ export const projects: Project[] = [
     id: "yt-ext",
     title: "YouTube Comments Sidebar Extension",
     description:
-      "A simple Chrome extension that moves YouTube comments to a sidebar above the recommended videos section. All comment features work - likes, replies, posting, everything! Clean UI that matches YouTube's design.",
+      'A simple Chrome extension that moves YouTube comments to a sidebar above the recommended videos section. All comment features work - likes, replies, posting, everything! Clean UI that matches YouTube\'s design. <strong> Available for <a class="font-medium text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-2 hover:decoration-primary/60 transition-colors" href="https://addons.mozilla.org/en-US/firefox/addon/youtube-comments-sidebar/">Firefox</a> </strong>',
     imageUrl: YtExtensionCover.src,
     lightImageUrl: YtExtensionLightCover.src,
     techStack: ["javascript", "html", "css"],
