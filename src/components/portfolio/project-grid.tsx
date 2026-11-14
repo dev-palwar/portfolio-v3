@@ -8,10 +8,11 @@ import { SectionHeader } from "@/components/portfolio/experience";
 interface ProjectGridProps {
   projects: Project[];
   title?: string;
+  limit?: number;
 }
 
-export function ProjectGrid({ projects, title }: ProjectGridProps) {
-  const featuredProjects = projects.filter((p) => p.featured);
+export function ProjectGrid({ projects, title, limit = 4 }: ProjectGridProps) {
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, limit);
 
   return (
     <div className="spacing-secondary">

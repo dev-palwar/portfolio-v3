@@ -373,7 +373,7 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", url: "https://github.com/dev-palwar/Anime-cli" },
     ],
-    featured: true,
+    featured: false,
     metadata: {
       timeline: "",
       role: "Developer",
