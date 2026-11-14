@@ -9,6 +9,7 @@ import YtExtensionLightCover from "@/assets/covers/yt-ext-light.png";
 import ZentryCover from "@/assets/covers/zentry-cover.png";
 import DmBrooCover from "@/assets/covers/dmbroo.png";
 import CutlineCover from "@/assets/covers/cutline-cover-3.jpg";
+import GskSoulHealingCover from "@/assets/covers/gsk-soul-healing.png";
 
 import { Project } from "@/types/portfolio";
 
@@ -83,6 +84,90 @@ export const projects: Project[] = [
         "Extracted Graph API rate limit usage headers in real-time on every outgoing request to keep a Redis tracking cache updated. </br> Enforced a 2-second account-level spam guard cooldown and built global panic thresholds that automatically throttle non-premium accounts when the app's overall API limits are threatened.",
         "Implemented a Write-Behind pattern using Redis lists (rpush) to buffer execution outcomes asynchronously. </br>w Built a background flusher interval that drains the buffer in batches of 500, bulk-deduplicates them, and performs a single transactional DB write every 5 seconds.",
       ],
+    },
+  },
+  {
+    id: "gsk-soul-healing",
+    title: "GSK Soul Healing",
+    description:
+      'Developed for <a class="font-medium text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-2 hover:decoration-primary/60 transition-colors" href="https://www.gsksoulhealing.com/" target="_blank" rel="noopener noreferrer">GSK Soul Healing</a>. A high-concurrency consultation and appointment booking platform with real-time slot locking, Razorpay integration, automated Zoom scheduling, and calendar invites.',
+    imageUrl: GskSoulHealingCover.src,
+    techStack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwindcss",
+      "mongodb",
+      "prisma",
+      "razorpay",
+      "zoom",
+      "resend",
+    ],
+    links: [{ label: "Live", url: "https://www.gsksoulhealing.com/" }],
+    featured: true,
+    metadata: {
+      timeline: "",
+      role: "Full Stack Developer",
+      team: "Solo",
+      status: "Completed",
+    },
+    details: {
+      overview:
+        "GSK Soul Healing is an appointment and consultation booking platform built for a spiritual healing and meditation consultancy. Built with Next.js (App Router), TypeScript, and MongoDB with Prisma, the system manages the complete end-to-end lifecycle of one-on-one appointments. It features intelligent time-slot generation with configurable buffer times and IST timezone normalization, anti-concurrency slot locking (BookingHold) to prevent double-booking across multi-minute UPI and Netbanking payment flows, automated Razorpay webhook processing, automated Zoom meeting provisioning via Server-to-Server OAuth, Resend transactional emails with ICS calendar attachments, and a comprehensive admin operations dashboard.",
+
+      whyBuilt: [
+        "The client was manually coordinating consultation slots via WhatsApp and email, causing frequent scheduling overlaps, manual mistakes, and delays.",
+        "Manual payment reconciliation across UPI and bank transfers was tedious and difficult to track accurately.",
+        "Needed an automated system that handles scheduling, payments, video meeting generation, and calendar invites end-to-end without manual administrative friction.",
+      ],
+
+      features: [
+        "Multi-Step Interactive Booking Drawer: Guided 4-step booking workflow covering date selection, dynamic time-slot picking, client details, and Razorpay checkout.",
+        "Dynamic Slot Generation & Buffer Math: Real-time time slot generation calculated against practitioner working hours, bidirectional session buffer intervals (e.g. 5-15 min breaks), daily booking caps, and same-day lead time buffers.",
+        "Anti-Concurrency Slot Holds: 10-minute temporary atomic slot reservation (BookingHold) with NTP clock skew tolerance, locking slots during payment to prevent race conditions and double-bookings.",
+        "Webhook-Driven Atomic Confirmation: Decoupled payment capture workflow using cryptographic Razorpay webhook verification that records bookings reliably even if users drop off after payment.",
+        "Automated Zoom Meeting Provisioning: Integrates Zoom's Server-to-Server OAuth API to generate dedicated video meeting rooms with encrypted join links and passcodes immediately upon booking confirmation.",
+        "Resend Email Notifications & Calendar Sync: Sends transactional confirmation emails featuring booking summaries, dynamic invoices, and RFC-5545 compliant .ics calendar attachments for one-click Apple and Google Calendar addition.",
+        "Lifecycle Automation & Expiration: Automated background tasks that transition concluded sessions to COMPLETED status and invalidate expired Zoom meeting links for privacy and hygiene.",
+        "Full Admin Operations Portal: Comprehensive administration dashboard to configure base availability hours, set holiday/custom date overrides, manage services, review inquiries, and resolve payment or scheduling conflicts.",
+      ],
+
+      techStack: {
+        frontend: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "GSAP",
+          "Radix UI",
+        ],
+        backend: ["Next.js Server Actions", "Node.js", "Prisma", "MongoDB"],
+        database: ["MongoDB", "Prisma"],
+        tools: ["Razorpay", "Zoom API", "Resend", "UploadThing", "Vercel"],
+      },
+
+      challenges: [
+        "Eliminating Double-Booking Races During Multi-Minute Payment Flows",
+        "Stateless Recovery for Webhook Processing & Disconnected Clients",
+        "Complex Calendar Timezone Normalization and Session Turnaround Buffers",
+        "Meeting Security and Automated Lifecycle Management",
+      ],
+
+      solutions: [
+        "Implemented a temporary atomic slot hold mechanism ('BookingHold') with a 10-minute TTL and 30-second NTP skew leeway. Slots are pre-reserved when checkout opens, rejected if already held, and automatically cleared if checkout is abandoned or dismissed.",
+        "Engineered an idempotent webhook handler with cryptographic signature verification that captures payments and verifies orders against database holds or order metadata snapshots. In rare edge cases where payments capture after hold expiration on an already-booked slot, the system automatically routes the transaction into an admin conflict resolution ledger with automated refund options.",
+        "Standardized all database dates to UTC midnight while evaluating session math in strict Asia/Kolkata (IST) time. Enforced bidirectional buffer math (pre- and post-session padding) across both active holds and confirmed bookings to protect instructor turnaround.",
+        "Integrated Zoom's Server-to-Server OAuth with proactive token caching, and built an automated lifecycle service that checks session end times (now >= startTime + duration in IST) to mark sessions as COMPLETED and invalidate meeting credentials.",
+      ],
+
+      impact: {
+        achievements: [
+          "Completely eliminated consultation double-bookings and scheduling friction through atomic slot holds.",
+          "Automated 100% of the booking lifecycle from payment capture to Zoom meeting creation and ICS calendar delivery.",
+          "Equipped the client with a self-service admin dashboard to manage offerings, working schedules, and day overrides effortlessly.",
+        ],
+      },
     },
   },
   {

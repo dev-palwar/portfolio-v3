@@ -23,6 +23,8 @@ import {
   SiMysql,
   SiShopify,
   SiDocker,
+  SiZoom,
+  SiResend,
 } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GoProjectSymlink } from "react-icons/go";
@@ -79,6 +81,8 @@ const iconColorMap: Record<string, string> = {
   mysql: "text-[#4479A1]",
   shopify: "text-[#7AB55C]",
   docker: "text-[#2496ED]",
+  zoom: "text-[#2D8CFF]",
+  resend: "text-foreground",
 };
 
 // Maps icon names to their React components
@@ -124,6 +128,8 @@ const iconComponentMap: Record<
   mysql: SiMysql,
   shopify: SiShopify,
   docker: SiDocker,
+  zoom: SiZoom,
+  resend: SiResend,
 };
 
 interface RenderIconProps {
