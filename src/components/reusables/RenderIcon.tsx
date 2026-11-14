@@ -20,6 +20,9 @@ import {
   SiHtml5,
   SiCss3,
   SiSocketdotio,
+  SiMysql,
+  SiShopify,
+  SiDocker,
 } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GoProjectSymlink } from "react-icons/go";
@@ -73,6 +76,9 @@ const iconColorMap: Record<string, string> = {
   bun: "text-bun",
   razorpay: "text-razorpay",
   bullmq: "text-bullmq",
+  mysql: "text-[#4479A1]",
+  shopify: "text-[#7AB55C]",
+  docker: "text-[#2496ED]",
 };
 
 // Maps icon names to their React components
@@ -115,6 +121,9 @@ const iconComponentMap: Record<
   bun: SiBun,
   razorpay: SiRazorpay,
   bullmq: GiBull,
+  mysql: SiMysql,
+  shopify: SiShopify,
+  docker: SiDocker,
 };
 
 interface RenderIconProps {

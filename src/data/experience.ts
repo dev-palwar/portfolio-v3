@@ -1,15 +1,43 @@
 import finocoLogo from "@/assets/icons/Finoco Blue Icon.png";
 import lumaraLogo from "@/assets/icons/lumara-jewels.jpeg";
 import DmBrooIcon from "@/assets/icons/dmbroo-logo.jpeg";
+import stuvLogo from "@/assets/icons/stuv-logo.svg";
 import { Experience } from "@/types/portfolio";
 
 export const experience: Experience[] = [
+  {
+    id: "exp-4",
+    company: "Stuv.ai",
+    companyUrl: "https://stuv.ai/",
+    role: "Fullstack Engineer",
+    period: "July 2026 - Present",
+    highlights: [
+      "Built a 5-step multi-channel campaign wizard with CSV lead upload, template variable autocomplete, audio voice sample playback, and interactive live WhatsApp message previews.",
+      "Developed a Kanban-style CRM pipeline dashboard featuring drag-and-drop lead stage progression, custom tags, and stage-triggered WhatsApp automations with scheduled cadences.",
+      "Created unified customer profile pages that consolidate multi-channel communication timelines, aggregating WhatsApp chats, AI voice call transcripts/audio, and emails into a single chronological feed.",
+      "Built an Instagram growth and automation suite featuring keyword-based DM reply rules, public comment-to-DM triggers, and a scheduled post publisher with carousel support.",
+      "Developed an AI voice agent configuration portal allowing businesses to provision dedicated phone lines, customize brand knowledge bases, test calls in a simulator, and inspect call transcripts with sentiment tags.",
+      "Engineered an embedded Shopify merchant portal and storefront embed SDK for virtual try-on products (apparel, jewelry, furniture), supporting custom fabric presets and Google SSO login to save looks.",
+    ],
+    logoUrl: stuvLogo.src,
+    techStack: [
+      "react",
+      "typescript",
+      "nodejs",
+      "expressjs",
+      "tailwindcss",
+      "mysql",
+      "shopify",
+      "docker",
+    ],
+    place: "Gurgaon, Haryana | Onsite",
+  },
   {
     id: "exp-3",
     company: "DmBroo",
     companyUrl: "https://www.dmbroo.com/",
     role: "Founding Fullstack Engineer",
-    period: "Apr 2026 - Present",
+    period: "Apr 2026 - July 2026",
     highlights: [
       "Single-handedly built a robust webhook ingestion and processing pipeline using a dedicated NodeJs worker (BullMQ/Redis) to reliably execute features like automated DMs, public comment replies, and ask-to-follow triggers",
       "Designed and developed dashboard widgets, visualizing critical engagement metrics such as best time to post, follower growth trends, and total outreach.",

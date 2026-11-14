@@ -38,7 +38,7 @@ export const projects: Project[] = [
       timeline: "",
       role: "Full Stack Developer",
       team: "Solo",
-      status: "Building",
+      status: "Completed",
     },
     details: {
       overview:
